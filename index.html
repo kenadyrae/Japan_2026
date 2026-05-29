@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan 2026 — Beaudoin Family</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --tokyo:#5B4FCF; --tokyo-bg:#EEEDFC; --tokyo-border:#D8D4F5;
+  --kyoto:#B5390A; --kyoto-bg:#FDECEA; --kyoto-border:#F5D0C8;
+  --hakone:#0D6B50; --hakone-bg:#E0F5EE; --hakone-border:#B8E8D8;
+  --travel:#6B7280; --travel-bg:#F3F4F6; --travel-border:#E0E0DC;
+  --bg:#F8F7F4; --card:#FFFFFF; --ink:#1A1A18; --ink2:#4A4A47; --ink3:#9A9A96; --border:#E8E8E3;
+  --t-activity:#5B4FCF; --t-transit:#6B7280; --t-food:#15803D; --t-nap:#4338CA; --t-logistics:#B45309;
+  --book-bg:#EFF6FF; --book:#1D4ED8;
+  --vegan-bg:#F0FDF4; --vegan:#15803D;
+  --toddler-bg:#FFF7ED; --toddler:#B45309;
+  --ghibli-bg:#F5F3FF; --ghibli:#6D28D9;
+  --split-bg:#F0FDFA; --split:#0F766E;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;}
+
+/* ─── VIEWS ─── */
+.view{display:none;padding:24px 16px 60px;max-width:1180px;margin:0 auto;}
+.view.active{display:block;}
+
+/* ─── OVERVIEW ─── */
+.ov-header{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--ink);padding-bottom:14px;margin-bottom:18px;flex-wrap:wrap;gap:10px;}
+h1{font-family:'Noto Serif JP',serif;font-size:26px;font-weight:700;line-height:1.1;}
+h1 em{color:var(--kyoto);font-style:normal;}
+.ov-sub{font-size:11px;color:var(--ink3);margin-top:4px;font-weight:300;}
+.arc{display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+.arc-pill{padding:5px 10px;border-radius:100px;font-size:10px;font-weight:500;text-align:center;line-height:1.4;}
+.arc-pill small{display:block;font-weight:300;font-size:9px;opacity:.75;}
+.p-tokyo{background:var(--tokyo-bg);color:var(--tokyo);}
+.p-kyoto{background:var(--kyoto-bg);color:var(--kyoto);}
+.p-hakone{background:var(--hakone-bg);color:var(--hakone);}
+.arc-arrow{color:var(--ink3);font-size:12px;}
+.flight-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+.flight-pill{display:flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 10px;font-size:11px;}
+.flight-pill .arr{color:var(--ink3);}
+.accom-section{margin-bottom:16px;}
+.accom-lbl{font-size:10px;font-weight:500;color:var(--ink3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;}
+.accom-bar{display:grid;grid-template-columns:repeat(15,1fr);gap:3px;height:32px;}
+.accom-seg{border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:600;color:white;cursor:default;}
+.accom-names{display:grid;grid-template-columns:repeat(15,1fr);gap:3px;margin-top:3px;}
+.legend{display:flex;flex-wrap:wrap;gap:5px 10px;align-items:center;margin-bottom:14px;}
+.leg-lbl{font-size:10px;font-weight:500;color:var(--ink3);text-transform:uppercase;letter-spacing:.08em;}
+.tag{font-size:10px;font-weight:500;padding:2px 6px;border-radius:5px;}
+.t-book{background:var(--book-bg);color:var(--book);}
+.t-vegan{background:var(--vegan-bg);color:var(--vegan);}
+.t-toddler{background:var(--toddler-bg);color:var(--toddler);}
+.t-ghibli{background:var(--ghibli-bg);color:var(--ghibli);}
+.t-split{background:var(--split-bg);color:var(--split);}
+.week-hdrs{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:5px;}
+.wh{font-size:9px;font-weight:500;color:var(--ink3);text-transform:uppercase;letter-spacing:.07em;text-align:center;}
+.week-row{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:6px;}
+.day-card{border-radius:10px;padding:9px 9px 8px;min-height:130px;display:flex;flex-direction:column;border:1px solid transparent;position:relative;overflow:hidden;cursor:pointer;transition:transform .15s,box-shadow .15s;}
+.day-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.1);}
+.day-card.tokyo{background:var(--tokyo-bg);border-color:var(--tokyo-border);}
+.day-card.kyoto{background:var(--kyoto-bg);border-color:var(--kyoto-border);}
+.day-card.hakone{background:var(--hakone-bg);border-color:var(--hakone-border);}
+.day-card.travel{background:var(--travel-bg);border-color:var(--travel-border);}
+.day-card.empty{background:transparent;border-color:transparent;min-height:0;cursor:default;pointer-events:none;}
+.day-card.empty:hover{transform:none;box-shadow:none;}
+.day-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;border-radius:10px 0 0 10px;}
+.day-card.tokyo::before{background:var(--tokyo);}
+.day-card.kyoto::before{background:var(--kyoto);}
+.day-card.hakone::before{background:var(--hakone);}
+.day-card.travel::before{background:var(--travel);}
+.day-num{font-size:16px;font-weight:500;line-height:1;margin-bottom:1px;}
+.day-card.tokyo .day-num{color:var(--tokyo);}
+.day-card.kyoto .day-num{color:var(--kyoto);}
+.day-card.hakone .day-num{color:var(--hakone);}
+.day-card.travel .day-num{color:var(--travel);}
+.day-lbl{font-size:8px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--ink3);margin-bottom:5px;}
+.day-anchor{font-size:10.5px;font-weight:500;color:var(--ink);line-height:1.35;flex:1;}
+.day-tags{display:flex;flex-wrap:wrap;gap:3px;margin-top:5px;}
+.city-hdr{display:flex;align-items:center;gap:10px;padding:16px 2px 6px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
+.city-hdr::after{content:'';flex:1;height:1px;background:var(--border);}
+.city-hdr.tokyo{color:var(--tokyo);}
+.city-hdr.kyoto{color:var(--kyoto);}
+.city-hdr.hakone{color:var(--hakone);}
+.city-hdr.travel{color:var(--travel);}
+.split-dot{position:absolute;top:8px;right:8px;width:7px;height:7px;border-radius:50%;background:var(--split);}
+.ov-notes{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:18px;}
+.note-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:13px 14px;}
+.note-card h3{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--ink3);margin-bottom:8px;}
+.ni{font-size:11px;color:var(--ink2);padding:4px 0;border-bottom:1px solid var(--border);line-height:1.4;display:flex;gap:6px;}
+.ni:last-child{border-bottom:none;}
+.ni b{color:var(--ink);font-weight:500;}
+.urgent{background:#FFFBEB;border:1px solid #FDE68A;border-radius:10px;padding:13px 14px;margin-top:14px;}
+.urgent h3{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:#92400E;margin-bottom:8px;}
+.ug{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px 20px;}
+.ui{font-size:11px;color:#78350F;padding:3px 0;line-height:1.4;display:flex;gap:5px;}
+.ui b{color:#92400E;font-weight:500;}
+
+/* ─── DETAIL VIEW ─── */
+.dt-topbar{display:flex;align-items:center;gap:10px;padding:0 0 18px;border-bottom:1px solid var(--border);margin-bottom:20px;flex-wrap:wrap;}
+.btn-back{display:flex;align-items:center;gap:5px;padding:7px 12px;border-radius:8px;border:1px solid var(--border);background:var(--card);color:var(--ink2);font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;font-weight:500;transition:all .15s;white-space:nowrap;}
+.btn-back:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+.dt-title-wrap{flex:1;min-width:0;}
+.dt-date{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:700;line-height:1.2;}
+.dt-date-sub{font-size:11px;color:var(--ink3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.dt-nav{display:flex;gap:6px;margin-left:auto;}
+.btn-nav{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--card);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;transition:all .15s;}
+.btn-nav:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+.btn-nav:disabled{opacity:.3;cursor:default;}
+.btn-nav:disabled:hover{background:var(--card);color:var(--ink);border-color:var(--border);}
+
+/* Day strip */
+.day-strip{display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+.day-strip::-webkit-scrollbar{display:none;}
+.ds-day{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;cursor:pointer;border:1.5px solid transparent;transition:all .1s;flex-shrink:0;}
+.ds-day.tokyo{background:var(--tokyo-bg);color:var(--tokyo);}
+.ds-day.tokyo.active{background:var(--tokyo);color:white;}
+.ds-day.kyoto{background:var(--kyoto-bg);color:var(--kyoto);}
+.ds-day.kyoto.active{background:var(--kyoto);color:white;}
+.ds-day.hakone{background:var(--hakone-bg);color:var(--hakone);}
+.ds-day.hakone.active{background:var(--hakone);color:white;}
+.ds-day.travel{background:var(--travel-bg);color:var(--travel);}
+.ds-day.travel.active{background:var(--travel);color:white;}
+.ds-sep{width:1px;min-width:1px;background:var(--border);align-self:stretch;margin:4px 2px;}
+
+/* Event timeline */
+.timeline{position:relative;}
+.ev-row{display:flex;margin-bottom:12px;position:relative;}
+.ev-time-col{width:68px;flex-shrink:0;padding-top:11px;text-align:right;padding-right:12px;}
+.ev-time{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);line-height:1;white-space:nowrap;}
+.ev-connector{width:2px;flex-shrink:0;position:relative;margin-top:16px;}
+.ev-connector-line{position:absolute;top:8px;bottom:-20px;left:0;width:2px;background:var(--border);}
+.ev-dot{width:10px;height:10px;border-radius:50%;border:2px solid white;box-shadow:0 0 0 2px currentColor;position:absolute;left:-4px;top:0;}
+.ev-body{flex:1;margin-left:12px;padding:10px 12px;border-radius:10px;border:1px solid transparent;min-width:0;}
+.ev-header{display:flex;align-items:flex-start;gap:6px;flex-wrap:wrap;}
+.ev-title{font-size:14px;font-weight:600;color:var(--ink);line-height:1.3;flex:1;min-width:0;}
+.ev-dur{font-size:10px;font-weight:500;padding:2px 7px;border-radius:20px;white-space:nowrap;margin-top:2px;}
+.ev-booked{font-size:10px;font-weight:600;color:#15803D;background:#F0FDF4;padding:2px 7px;border-radius:20px;white-space:nowrap;margin-top:2px;}
+.ev-loc{font-size:11px;color:var(--ink3);margin-top:5px;display:flex;align-items:baseline;gap:4px;line-height:1.4;}
+.ev-loc-icon{opacity:.6;flex-shrink:0;}
+.ev-notes{font-size:12px;color:var(--ink2);margin-top:6px;line-height:1.55;}
+.ev-prep{margin-top:8px;}
+.ev-prep-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:#92400E;margin-bottom:4px;}
+.ev-prep-item{font-size:11px;color:#78350F;padding:2px 0 2px 14px;position:relative;line-height:1.4;}
+.ev-prep-item::before{content:'→';position:absolute;left:0;opacity:.6;}
+.ev-split-badge{font-size:10px;font-weight:600;background:var(--split-bg);color:var(--split);padding:2px 7px;border-radius:20px;margin-top:2px;}
+.maps-btn{display:inline-flex;align-items:center;gap:3px;margin-left:8px;font-size:10px;font-weight:600;color:var(--book);background:var(--book-bg);padding:2px 8px;border-radius:20px;text-decoration:none;white-space:nowrap;border:1px solid #BFDBFE;transition:all .15s;flex-shrink:0;}
+.maps-btn:hover{background:var(--book);color:white;border-color:var(--book);}
+
+/* Event type styles */
+.ev-row.type-activity .ev-dot{color:var(--t-activity);}
+.ev-row.type-activity .ev-body{background:#FAFAFF;border-color:#E8E4FF;}
+.ev-row.type-activity .ev-dur{background:var(--tokyo-bg);color:var(--tokyo);}
+.ev-row.type-activity.phase-kyoto .ev-dot{color:var(--kyoto);}
+.ev-row.type-activity.phase-kyoto .ev-body{background:#FFF8F7;border-color:#F5D0C8;}
+.ev-row.type-activity.phase-kyoto .ev-dur{background:var(--kyoto-bg);color:var(--kyoto);}
+.ev-row.type-activity.phase-hakone .ev-dot{color:var(--hakone);}
+.ev-row.type-activity.phase-hakone .ev-body{background:#F5FEFA;border-color:#B8E8D8;}
+.ev-row.type-activity.phase-hakone .ev-dur{background:var(--hakone-bg);color:var(--hakone);}
+.ev-row.type-activity.phase-travel .ev-dot{color:var(--travel);}
+.ev-row.type-transit .ev-dot{color:var(--t-transit);}
+.ev-row.type-transit .ev-body{background:#F9FAFB;border-color:#E5E7EB;}
+.ev-row.type-transit .ev-dur{background:#F3F4F6;color:#4B5563;}
+.ev-row.type-food .ev-dot{color:var(--t-food);}
+.ev-row.type-food .ev-body{background:#F0FDF4;border-color:#BBF7D0;}
+.ev-row.type-food .ev-dur{background:#DCFCE7;color:#15803D;}
+.ev-row.type-nap .ev-dot{color:var(--t-nap);}
+.ev-row.type-nap .ev-body{background:#EEF2FF;border-color:#C7D2FE;}
+.ev-row.type-nap .ev-dur{background:#E0E7FF;color:#4338CA;}
+.ev-row.type-logistics .ev-dot{color:var(--t-logistics);}
+.ev-row.type-logistics .ev-body{background:#FFFBEB;border-color:#FDE68A;}
+.ev-row.type-logistics .ev-dur{background:#FEF3C7;color:#B45309;}
+
+/* ─── MOBILE ─── */
+@media (max-width:640px){
+  .view{padding:14px 12px 50px;}
+  h1{font-size:20px;}
+  .ov-sub{font-size:10px;}
+  .ov-header{padding-bottom:10px;margin-bottom:14px;}
+  .arc-pill{font-size:9px;padding:4px 8px;}
+  .arc-pill small{font-size:8px;}
+  .flight-pill{font-size:10px;padding:5px 8px;}
+  .accom-bar{height:26px;}
+  .accom-seg{font-size:7px;}
+  .week-hdrs{display:none;}
+  .week-row{grid-template-columns:1fr 1fr;gap:5px;}
+  .day-card{min-height:100px;padding:8px 8px 7px;}
+  .day-card.empty{display:none;}
+  .day-num{font-size:15px;}
+  .day-lbl{font-size:8px;}
+  .day-anchor{font-size:10px;}
+  .tag{font-size:9px;padding:2px 5px;}
+  .ov-notes{grid-template-columns:1fr;}
+  .ug{grid-template-columns:1fr;}
+  .dt-date{font-size:17px;}
+  .dt-date-sub{font-size:10px;}
+  .ev-time-col{width:54px;padding-right:8px;}
+  .ev-time{font-size:10px;}
+  .ev-body{margin-left:10px;padding:8px 10px;}
+  .ev-title{font-size:13px;}
+  .ev-notes{font-size:11px;}
+  .ev-loc{font-size:10px;}
+  .btn-back{font-size:11px;padding:6px 10px;}
+  .dt-topbar{gap:8px;padding-bottom:14px;margin-bottom:16px;}
+}
+
+/* ─── GUIDED MODE ─── */
+#gd{background:var(--bg);min-height:100vh;padding:0;}
+#gd.active{display:flex;flex-direction:column;}
+.gd-screen{flex:1;display:flex;flex-direction:column;max-width:520px;margin:0 auto;width:100%;min-height:100vh;}
+.gd-topbar{display:flex;justify-content:space-between;align-items:center;padding:16px 20px 8px;}
+.gd-topbar-logo{font-size:10px;font-weight:700;color:var(--ink3);letter-spacing:.1em;text-transform:uppercase;}
+.gd-ov-link{font-size:11px;color:var(--ink3);background:none;border:1px solid var(--border);border-radius:20px;cursor:pointer;padding:5px 12px;font-family:'DM Sans',sans-serif;transition:all .15s;}
+.gd-ov-link:hover{background:var(--ink);color:white;border-color:var(--ink);}
+.gd-card{flex:1;padding:20px 24px 32px;display:flex;flex-direction:column;}
+.gd-phase-bar{height:4px;border-radius:2px;margin-bottom:20px;flex-shrink:0;}
+.gd-phase-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+.gd-phase-label{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;}
+.gd-progress{font-size:10px;color:var(--ink3);background:var(--border);padding:3px 9px;border-radius:20px;}
+.gd-spacer{flex:1;min-height:16px;}
+/* Welcome */
+.gd-welcome-hero{text-align:center;padding:16px 0 24px;}
+.gd-welcome-icon{font-size:52px;margin-bottom:12px;}
+.gd-welcome-title{font-family:'Noto Serif JP',serif;font-size:30px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+.gd-welcome-sub{font-size:13px;color:var(--ink3);}
+.gd-phases-row{display:flex;justify-content:center;gap:8px;margin:20px 0 28px;flex-wrap:wrap;}
+.gd-phase-chip{padding:6px 14px;border-radius:100px;font-size:11px;font-weight:500;}
+/* Morning */
+.gd-morning-eyebrow{font-size:13px;color:var(--ink3);margin-bottom:6px;}
+.gd-morning-date{font-size:12px;color:var(--ink3);margin-bottom:4px;}
+.gd-morning-title{font-family:'Noto Serif JP',serif;font-size:28px;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:16px;}
+.gd-morning-summary{font-size:13px;color:var(--ink2);line-height:1.65;padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:8px;}
+/* Event */
+.gd-ev-icon{font-size:38px;margin-bottom:10px;line-height:1;}
+.gd-ev-title{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:12px;}
+.gd-ev-badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+.gd-badge{padding:4px 10px;border-radius:20px;font-size:11px;font-weight:500;}
+.gd-badge-time{background:#F3F4F6;color:#374151;}
+.gd-badge-dur{background:var(--travel-bg);color:var(--travel);}
+.gd-badge-booked{background:#F0FDF4;color:#15803D;font-weight:600;}
+.gd-ev-loc{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:14px;}
+.gd-ev-loc-text{font-size:12px;color:var(--ink2);flex:1;line-height:1.4;}
+.gd-maps-link{flex-shrink:0;padding:5px 10px;background:var(--book-bg);color:var(--book);border:1px solid #BFDBFE;border-radius:20px;font-size:10px;font-weight:600;text-decoration:none;white-space:nowrap;}
+.gd-ev-notes{font-size:13px;color:var(--ink2);line-height:1.65;margin-bottom:14px;}
+.gd-ev-prep{background:#FFFBEB;border:1px solid #FDE68A;border-radius:10px;padding:12px 14px;margin-bottom:14px;}
+.gd-ev-prep-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:6px;}
+.gd-ev-prep-item{font-size:12px;color:#78350F;padding:3px 0 3px 14px;position:relative;line-height:1.45;}
+.gd-ev-prep-item::before{content:'→';position:absolute;left:0;opacity:.6;}
+/* Night */
+.gd-night-screen{background:#0F172A;min-height:100vh;display:flex;flex-direction:column;}
+.gd-night-topbar{display:flex;justify-content:flex-end;padding:16px 20px 0;}
+.gd-night-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 24px;}
+.gd-night-icon{font-size:56px;margin-bottom:16px;}
+.gd-night-heading{font-family:'Noto Serif JP',serif;font-size:26px;font-weight:700;color:white;margin-bottom:10px;}
+.gd-night-sub{font-size:13px;color:#94A3B8;line-height:1.6;margin-bottom:40px;}
+/* Buttons */
+.gd-btn{width:100%;padding:15px;border-radius:12px;border:none;font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .15s;margin-bottom:10px;}
+.gd-btn-ghost{background:var(--card);color:var(--ink2);border:1px solid var(--border);font-size:13px;padding:12px;}
+.gd-btn-night-ghost{background:rgba(255,255,255,.07);color:#94A3B8;border:1px solid rgba(255,255,255,.1);font-size:13px;padding:12px;}
+.gd-btn-night-main{background:white;color:#0F172A;font-size:15px;padding:15px;}
+.gd-btn.tokyo{background:var(--tokyo);color:white;}
+.gd-btn.kyoto{background:var(--kyoto);color:white;}
+.gd-btn.hakone{background:var(--hakone);color:white;}
+.gd-btn.travel{background:var(--travel);color:white;}
+.gd-btn.welcome{background:var(--kyoto);color:white;}
+/* Guided mode button in overview */
+.gd-launch-btn{display:flex;align-items:center;gap:6px;padding:8px 16px;background:var(--kyoto);color:white;border:none;border-radius:8px;font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:opacity .15s;white-space:nowrap;}
+.gd-launch-btn:hover{opacity:.88;}
+@media(max-width:640px){.gd-ev-title{font-size:20px;}.gd-morning-title{font-size:24px;}.gd-welcome-title{font-size:26px;}}
+</style>
+</head>
+<body>
+
+<div id="ov" class="view"></div>
+<div id="dt" class="view"></div>
+<div id="gd" class="view"></div>
+
+<script>
+// ─── DATA ─────────────────────────────────────────────────────────
+const PHASES = {tokyo:'tokyo',kyoto:'kyoto',hakone:'hakone',travel:'travel'};
+
+const days = [
+// ── Jun 8 ──────────────────────────────────────────────────────────
+{ date:8, phase:'travel', label:'Pre-flight', dow:'Monday',
+  summary:'🚗 Westminster → LAX · ✈️ NH125 to Tokyo',
+  tags:[], cardNote:'Kids eat at home before leaving. 12hr flight to Tokyo.',
+  events:[
+    {t:'11:30 AM',dur:'30 min',type:'prep',title:'🍽 Lunch at home',
+     loc:'13452 Sioux Rd, Westminster, CA',
+     notes:'Full meal for everyone — do not rely on airport food. Pack the carry-ons early so you can eat without rushing.',
+     prep:[]},
+    {t:'12:30 PM',dur:'45 min',type:'transit',title:'🚗 Uber to LAX',
+     loc:'LAX Terminal B (ANA Check-In), Los Angeles',
+     notes:'Car seat requested. Drive is ~20 miles up the 405. Monday afternoon traffic can extend this — 12:30 PM departure is the safe call.',
+     prep:['Book Uber the night before — select car seat option','Confirm pickup time is 12:15–12:30 PM']},
+    {t:'1:30 PM',dur:'1.5 hr',type:'transit',title:'🛂 Check-in + Security',
+     loc:'LAX Tom Bradley International Terminal',
+     notes:'ANA counter is in Terminal B. Allow 30–45 min for security with two kids. International security at TBIT can be slow.',
+     prep:['Passports out and accessible','Liquids in quart bag, top of bag','Kids may need to remove shoes']},
+    {t:'3:00 PM',dur:'2 hr',type:'prep',title:'🪑 Gate area',
+     loc:'Gate area, Terminal B',
+     notes:'Grab a snack if needed. Good opportunity to stretch. Food options past security are reasonable.',
+     prep:[]},
+    {t:'5:00 PM',dur:'12 hr',type:'transit',title:'✈️ NH125 Departs LAX',
+     loc:'LAX → Haneda Terminal 3 (Tokyo)',
+     notes:'Dinner served ~6:30 PM. Jet lag plan: keep kids awake until 11 PM PST. Wind-down at 10 PM (no screens), asleep by 11 PM = 3 PM JST. Wake gently at 5 AM PST for landing.',
+     prep:['Melatonin packed if using (0.5mg, check with pediatrician first)','Tablets charged + loaded with offline content','Blankets + neck pillows in personal bags, accessible during flight']}
+  ]
+},
+// ── Jun 9 ──────────────────────────────────────────────────────────
+{ date:9, phase:'tokyo', label:'Arrive Tokyo', dow:'Tuesday',
+  summary:'🛬 Land HND · 🏪 Air Lawson · Tobu Hotel Levant Tokyo',
+  tags:['vegan'], cardNote:'IC cards + pocket WiFi from Japan Experience. Recovery night only.',
+  events:[
+    {t:'9:00 PM',dur:'2 hr',type:'transit',title:'🛬 Land + Immigration + Customs',
+     loc:'Haneda Airport Terminal 3, Tokyo',
+     notes:'Timed entry procedures. Use the family lane if available. Collect luggage after clearing immigration.',
+     prep:['Have landing cards (distributed on plane) filled out','Passports out']},
+    {t:'11:00 PM',dur:'20 min',type:'logistics',title:'👋 Meet JE Agent + 💴 ATM',
+     loc:'Haneda Terminal 3 — Arrivals hall',
+     notes:'JE agent will have a sign with your name. Collect document envelope and check contents. 7-Eleven ATM in arrivals accepts foreign cards.',
+     prep:['Withdraw ¥50,000–60,000','Notify bank before departure to avoid card blocks']},
+    {t:'11:30 PM',dur:'15 min',type:'food',title:'🏪 Air Lawson',
+     loc:'Haneda Terminal 3 — Arrivals floor',
+     notes:'Safe vegan picks: plain salted onigiri, sweet red bean anman, fruit cups, edamame snacks. This is the kids\' "bedtime snack" — full tummies encourage sleep.',
+     prep:[]},
+    {t:'~12:30 AM',dur:'—',type:'transit',title:'🚌 Shared Shuttle → Hotel',
+     loc:'Tobu Hotel Levant Tokyo, 2-1-1 Kinshicho, Sumida City, Tokyo',
+     notes:'~45 min shuttle to Kinshicho. Check in, get to rooms. Recovery night only.',
+     prep:[]}
+  ]
+},
+// ── Jun 10 ─────────────────────────────────────────────────────────
+{ date:10, phase:'tokyo', label:'Shopping Day', dow:'Wednesday',
+  summary:'Solamachi · Matsumoto Kiyoshi · GU · Don Quijote',
+  tags:[], cardNote:'Buy all toiletries and basics on arrival. Light day — still jet-lagged.',
+  events:[
+    {t:'10:00 AM',dur:'1.5 hr',type:'activity',title:'🛍 Solamachi at Tokyo Skytree',
+     loc:'1-1-2 Oshiage, Sumida City, Tokyo (5 min walk from hotel)',
+     notes:'Uniqlo on B3F for basics and kids\' clothes. Daiso on 6F for ¥100 travel organizers, containers, small items. Pokémon Center on 4F — visit anytime, no booking needed.',
+     prep:[]},
+    {t:'12:00 PM',dur:'30 min',type:'activity',title:'💊 Matsumoto Kiyoshi',
+     loc:'Kinshicho Station area, Sumida City, Tokyo',
+     notes:'Best Japanese drugstore chain. Buy: sunscreen (Japanese sunscreen is excellent + cheap), toiletries, any pharmacy items, snacks. Everything is better value than bringing from home.',
+     prep:[]},
+    {t:'12:30 PM',dur:'1 hr',type:'nap',title:'Hotel nap 🛏',
+     loc:'Tobu Hotel Levant Tokyo',
+     notes:'Everyone still on PST. Use this window to rest. Best jet lag recovery is staying awake until a normal Japanese bedtime tonight.',
+     prep:[]},
+    {t:'2:00 PM',dur:'1 hr',type:'activity',title:'👕 GU (Uniqlo\'s budget sister brand)',
+     loc:'Akihabara or nearby — 10 min by train from hotel',
+     notes:'Cheaper than Uniqlo. Great for basics, kids\' clothes, lightweight layers for Kyoto mornings.',
+     prep:[]},
+    {t:'3:00 PM',dur:'1 hr',type:'activity',title:'🏬 Don Quijote (Donki)',
+     loc:'Multiple locations near hotel',
+     notes:'Organized chaos. Great for: cheap luggage/bags, random necessities, snacks in bulk, travel accessories, anything you forgot.',
+     prep:[]}
+  ]
+},
+// ── Jun 11 ─────────────────────────────────────────────────────────
+{ date:11, phase:'tokyo', label:'TeamLab Day', dow:'Thursday',
+  summary:'⛩ Senso-ji + Asakusa · 🌊 TeamLab Borderless · 🥞 Monjayaki dinner',
+  tags:['book'], cardNote:'Timed entry confirmed 11:00–11:30 AM. Senso-ji at 7:30 AM for zero crowds.',
+  events:[
+    {t:'7:30 AM',dur:'1.5 hr',type:'activity',title:'⛩ Senso-ji Temple + Asakusa',
+     loc:'2-3-1 Asakusa, Taito City, Tokyo',
+     notes:'Tokyo\'s oldest Buddhist temple. Walk under Kaminarimon (the iconic red gate with giant lantern), down Nakamise-dori shopping street, to the main temple. Before 9 AM the grounds are nearly empty. Tour groups arrive around 9 AM.',
+     prep:['Exit Asakusa Station and follow the crowd toward the gate','Temple grounds are free to enter']},
+    {t:'9:15 AM',dur:'35 min',type:'transit',title:'🚇 Travel to Azabudai Hills',
+     loc:'Ginza Line: Asakusa → Toranomon Hills + short walk',
+     notes:'Use IC cards. Roughly 25 min transit + 10 min walk to TeamLab entrance at Garden Plaza B.',
+     prep:[]},
+    {t:'11:00 AM',dur:'2–3 hr',type:'activity',title:'🌊 TeamLab Borderless',
+     loc:'Azabudai Hills Garden Plaza B, 1-2-4 Azabudai, Minato City, Tokyo',
+     notes:'Confirmed entry: 11:00–11:30 AM slot. Immersive digital art — 60+ interconnected rooms with no maps. Lila may nap inside (still adjusting to JST this week — flexibility is fine). Allow 2–3 hours.',
+     booked:true,
+     prep:['No large bags — use coin lockers at entrance (¥100 refundable)','Dark or neutral colors photograph better inside the light installations','Wear comfortable shoes — lots of walking on uneven/padded surfaces']},
+    {t:'2:30 PM',dur:'20 min',type:'transit',title:'🚇 Travel to Tsukishima',
+     loc:'Azabudai Hills → Tsukishima (Oedo Line, ~20 min)',
+     notes:'Monja Street is a 5-min walk from Tsukishima Station.',
+     prep:[]},
+    {t:'5:00 PM',dur:'1.5 hr',type:'food',title:'🥞 Monjayaki — Monja Takarajima',
+     loc:'Tsukishima Monja Street, Chuo City, Tokyo',
+     booked:true,
+     notes:'Tokyo\'s own dish — thin bubbling batter with toppings cooked on a small iron griddle at your table. Staff will help you cook. Order a few different flavors to share: mochi cheese, mentaiko, seafood are all classics. ~¥2,000/person adults.',
+     prep:['Reservation ref: 8VXN4MNTA5','Children not counted in ordering — adults order only','À la carte on the night — no pre-selected course','Arrive a few minutes early']}
+  ]
+},
+// ── Jun 12 ─────────────────────────────────────────────────────────
+{ date:12, phase:'tokyo', label:'Ghibli Day', dow:'Friday',
+  summary:'🎬 Ghibli Museum · 🌳 Inokashira Park · 🍽 Tofuya Ukai dinner',
+  tags:['book','ghibli','vegan'], cardNote:'Entry 10:00 AM confirmed. Inokashira Park is adjacent — natural afternoon for Lila.',
+  events:[
+    {t:'9:00 AM',dur:'45 min',type:'transit',title:'Travel to Mitaka',
+     loc:'JR Chuo Line: Shinjuku → Mitaka (20 min), or Keio Inokashira Line: Shibuya → Kichijoji (20 min)',
+     notes:'From travelogue: From Shinjuku take JR Chuo Line (tracks 11/12) to Mitaka. Exit South exit, walk ~15 min along Tamagawa Canal. Bus from stop 9 also available (¥210 adult, ¥105 child under 11).',
+     prep:[]},
+    {t:'10:00 AM',dur:'2–3 hr',type:'activity',title:'🎬 Ghibli Museum',
+     loc:'1-1-83 Shimorenjaku, Mitaka City, Tokyo 181-0013',
+     notes:'Confirmed entry 10:00 AM. No photography inside the main exhibits. Allow 2–3 hours. Each visit includes a short film screening exclusive to the museum.',
+     booked:true,
+     prep:['Tickets are for named persons — confirm names match passports with JE','No photos inside main exhibits — cameras can be put away','Short film is random and changes — no choice, part of the magic']},
+    {t:'12:30 PM',dur:'1.5 hr',type:'nap',title:'🌳 Inokashira Park — nap + decompress 🛏',
+     loc:'Inokashira Park, 1-18-31 Gotenyama, Musashino City, Tokyo (directly adjacent)',
+     notes:'Large park with a central pond, small zoo, swan boat rentals, and plenty of shaded grass.',
+     prep:[]},
+    {t:'5:00 PM',dur:'1.5–2 hr',type:'food',title:'🍽 Tofuya Ukai dinner',
+     loc:'4-4-13 Shiba Koen, Minato City, Tokyo (near Tokyo Tower)',
+     notes:'Upscale tofu kaiseki restaurant — a series of exquisite tofu and vegetable courses in a traditional setting with a koi garden and private tatami rooms. Excellent vegan/vegetarian option. Book in advance.',
+     prep:['Reservation required — book well ahead','Vegan request: confirm on booking','Relaxed pace — private rooms work well with kids']}
+  ]
+},
+// ── Jun 13 ─────────────────────────────────────────────────────────
+{ date:13, phase:'tokyo', label:'Split Day 🐾', dow:'Saturday',
+  summary:'🐾 Capybara Café · 🌸 Sakura Mochi · 👘 Kimono Workshop',
+  tags:['book','split','toddler'], split:true,
+  cardNote:'Capybara split 11 AM · Nap 12:30 PM · 👘 Kimono Workshop 3:00 PM · Ref FYY522945',
+  events:[
+    {t:'11:00 AM',dur:'30 min',type:'activity',title:'👥 Cafe Capyba (one parent + older child)',
+     loc:'Near Hikifune Station, Sumida City, Tokyo (5 min from hotel)',
+     notes:'SPLIT: 2 people only. Booked via Japan Experience. Min age 6+. 30-min session, one drink included. Pay any extras on the spot. Arrive 10 min early.',
+     booked:true,
+     prep:['Confirm it\'s the Hikifune location with JE (not Asakusa)','Bring cash for any extras']},
+    {t:'11:00 AM',dur:'30–45 min',type:'activity',title:'👥 Chomeiji Sakura Mochi (other parent + youngest)',
+     loc:'1-6-22 Mukojima, Sumida City, Tokyo (10 min walk from hotel)',
+     notes:'SPLIT: Birthplace of sakura mochi — pink rice cakes wrapped in a pickled cherry leaf. Walk along the Sumida River. Open Wed–Mon. No reservation needed.',
+     prep:['Jun 13 is Saturday ✓','Cash only, under ¥1,000']},
+    {t:'11:30 AM',dur:'—',type:'logistics',title:'👨‍👩‍👧‍👧 Whole family reunites',
+     loc:'Hotel or Hikifune area',
+     notes:'Short walk or one stop back to the hotel.',
+     prep:[]},
+    {t:'12:30 PM',dur:'1 hr',type:'nap',title:'Nap 🛏',
+     loc:'Tobu Hotel Levant Tokyo',
+     notes:'Good full nap before the afternoon workshop.',
+     prep:[]},
+    {t:'2:30 PM',dur:'10 min',type:'transit',title:'🚇 Travel to Kiba',
+     loc:'Kinshicho → Kiba (Tokyo Metro Tozai Line, 2 stops east)',
+     notes:'Hotel is on the Tozai Line — Kiba is 2 stops east, roughly 10 min door to door.',
+     prep:[]},
+    {t:'3:00 PM',dur:'90 min',type:'activity',title:'👘 Remake Your Own Kimono',
+     loc:'Tokyo Kimono Make · 6 Chome-8-6 Kiba, Koto City, Tokyo 135-0042',
+     booked:true,
+     notes:'90-min workshop: choose a vintage kimono and remake it into a wearable two-piece. Women\'s kimonos only. 4 quality levels — base included, upgrades payable onsite (blue +¥2,000 / green +¥4,000 / yellow +¥6,000). Children\'s version is a dress tied with string. Take the finished piece home.',
+     prep:['Booking ref: FYY522945 · Voucher: KMN-T132296163','Present mobile voucher on arrival','Wear a sports bra or flat-chest base layer — free kimono bra rental at the shop if needed','Spats or bike shorts recommended under clothing','Bring a bag to carry the kimono home','Cancel by Jun 10, 3:00 PM Tokyo time for full refund','Last-minute issues: WhatsApp 07090358484','Google Maps: https://maps.app.goo.gl/HUceRaTtnrKxWvG99','DIRECTIONS: Exit 2 of Kiba Station → turn left → narrow road between 栄記 (Eiki, Chinese) on left and 魚松 (Uomatsu) on right → cross red bridge → shrine on left → cross pedestrian crossing → straight then left along road (pharmacy on left) → Asakawa Clinic on right → narrow road in front of it → house surrounded by concrete blocks on left corner','Note: address is 6-8-6 Kiba (not 6-86 as shown on Viator)','No tipping in Japan — please do not tip staff','Do not sit in front of nearby houses while waiting before or after class']},
+    {t:'4:30 PM',dur:'—',type:'transit',title:'🚇 Return to hotel',
+     loc:'Kiba → Kinshicho (Tozai Line, 2 stops)',
+     notes:'Home by 5:00 PM.',
+     prep:[]}
+  ]
+},
+
+// ── Jun 14 ─────────────────────────────────────────────────────────
+{ date:14, phase:'tokyo', label:'Akihabara Day', dow:'Sunday',
+  summary:'🌿 Yoyogi Park + Meiji Jingu · 🎮 Akihabara · ♨️ Chanko Nabe dinner',
+  tags:['ghibli'], cardNote:'Yoyogi + Meiji morning · Nap 12:30 PM · Akihabara from 2 PM',
+  events:[
+    {t:'9:00 AM',dur:'2.5 hr',type:'activity',title:'🌿 Yoyogi Park + Meiji Jingu',
+     loc:'Yoyogi Park: 2-1 Yoyogikamizonocho, Shibuya City / Meiji Jingu: 1-1 Yoyogikamizonocho, Shibuya City',
+     notes:'Large open park with weekend atmosphere — street performers and open space. Meiji Jingu: forested Shinto shrine with wide gravel paths and tree canopy. The sake barrel display and main gate architecture are striking. Flat and easy to walk.',
+     prep:['Hats off at the shrine gate','Quiet atmosphere inside the grounds','~40 min by train from Kinshicho']},
+    {t:'11:30 AM',dur:'30 min',type:'transit',title:'🚇 Return to hotel',
+     loc:'Harajuku/Yoyogi → Kinshicho',
+     notes:'~40 min back. Aim to be in before 12:30 PM.',
+     prep:[]},
+    {t:'12:30 PM',dur:'1 hr',type:'nap',title:'Nap 🛏',
+     loc:'Tobu Hotel Levant Tokyo',
+     notes:'Last full day in Tokyo. Good recharge before the afternoon.',
+     prep:[]},
+    {t:'2:00 PM',dur:'3 hr',type:'activity',title:'🎮 Akihabara — arcades + anime merch',
+     loc:'Akihabara Electric Town, Taito/Chiyoda City, Tokyo',
+     notes:'Multi-floor arcades (Taito Station, Sega Akihabara), anime merch shops (Animate, Mandarake), electronics. Claw machines everywhere. Pokémon Center is at Solamachi near the hotel — no need to come here for that.',
+     prep:['Bring cash — many smaller shops are cash only','Arcade machines take ¥100 coins — change available inside']},
+    {t:'4:30 PM',dur:'15 min',type:'transit',title:'🚇 Travel to Ryogoku',
+     loc:'Kinshicho → Ryogoku (JR Sobu Line, 1 stop)',
+     notes:'One stop from the hotel. Ryogoku Station is a 5-min walk from the restaurant.',
+     prep:[]},
+    {t:'5:00 PM',dur:'2 hr',type:'food',title:'♨️ Chanko Nabe — Chanko Kirishima',
+     loc:'Chanko Kirishima Ryogoku Honten, Ryogoku, Sumida City, Tokyo',
+     booked:true,
+     notes:'Sumo wrestler hot pot in the heart of the sumo district. Sekiwake course: 6 dishes of authentic chanko nabe, the recipe passed down from a real sumo stable. Communal pot at the table — everyone cooks together.',
+     prep:['Reservation ref: D5TEGH7WTW','Sekiwake Course — 6 dishes, 2 hour seating','Children not included in ordering count','Settle meal bill at the restaurant (card may not work — bring cash)','Cancel free until Jun 14, 5:59 AM JST','⭐ Call 03-3634-0075 (11:30 AM–10:30 PM) to request a private room — recommended with kids']},
+    {t:'7:00 PM',dur:'—',type:'logistics',title:'🏨 Return to hotel + Takuhaibin',
+     loc:'Tobu Hotel Levant Tokyo',
+     notes:'Last night in Tokyo. Ask hotel to arrange takuhaibin (luggage forwarding) tonight — bags will arrive at Yasaka no Yado in Kyoto by Jun 16.',
+     prep:['Pack bags to be forwarded tonight','Keep one bag with Shinkansen essentials: documents, IC cards, change of clothes, snacks']}
+  ]
+},
+
+// ── Jun 15 ─────────────────────────────────────────────────────────
+{ date:15, phase:'travel', label:'Tokyo → Kyoto', dow:'Monday',
+  summary:'🚄 Nozomi 251 · Tokyo → Kyoto · 🏯 Yasaka no Yado',
+  tags:[], cardNote:'Shinkansen 10:00 AM. Check-in 3–6 PM. Right side of train for Mt. Fuji.',
+  events:[
+    {t:'8:30 AM',dur:'30 min',type:'prep',title:'🏨 Check out of Tobu Hotel Levant',
+     loc:'Tobu Hotel Levant Tokyo, 2-1-1 Kinshicho, Sumida City',
+     notes:'Confirm forwarded bags were picked up. Carry one bag with essentials only.',
+     prep:['Confirm takuhaibin receipt — bags should arrive in Kyoto Jun 16–17','Keep IC cards, pocket WiFi, travel docs accessible in carry bag']},
+    {t:'9:15 AM',dur:'30 min',type:'transit',title:'🚇 Travel to Tokyo Station',
+     loc:'Kinshicho → Tokyo Station (JR Sobu Line, ~15 min)',
+     notes:'Tokyo Station is large — allow time to find the Shinkansen platforms. Platforms 14–19 for Tokaido Shinkansen.',
+     prep:['Shinkansen tickets from Japan Experience package','Platform signs in English — follow Tokaido/Sanyo Shinkansen signs']},
+    {t:'10:00 AM',dur:'2 hr 15 min',type:'transit',title:'🚄 Nozomi 251 · Tokyo → Kyoto',
+     loc:'Tokyo Station → Kyoto Station',
+     booked:true,
+     notes:'Smooth, fast, quiet. Mt. Fuji is visible on the RIGHT side of the train heading west — usually best view around 40–45 min after departure near Shin-Fuji Station. Lila may nap naturally around noon.',
+     prep:['Grab onigiri or bento from Tokyo Station Daimaru or convenience store for lunch on the train','Right side seats for Mt. Fuji']},
+    {t:'12:15 PM',dur:'—',type:'transit',title:'📍 Arrive Kyoto Station',
+     loc:'Kyoto Station, Shimogyo Ward, Kyoto',
+     notes:'Check-in at Yasaka no Yado isn\'t until 3 PM. Options: store bags at Kyoto Station coin lockers, grab lunch, take a gentle explore near the station.',
+     prep:[]},
+    {t:'3:00 PM',dur:'—',type:'activity',title:'🏯 Check in to Yasaka no Yado',
+     loc:'Yasaka no Yado, Higashiyama Ward, Kyoto (confirm exact address with JE)',
+     notes:'Entire traditional Japanese house — 2 floors, tatami bedroom, hinoki cypress bath, small garden. Check-in window: 3–6 PM. Forwarded bags from Tokyo arrive Jun 16–17.',
+     booked:true,
+     prep:['Check-in window is 3–6 PM — aim for 3–4 PM to settle before evening','Remove shoes at entrance (genkan) — Japanese custom in a traditional house']}
+  ]
+},
+// ── Jun 16 ─────────────────────────────────────────────────────────
+{ date:16, phase:'kyoto', label:'Kyoto Day 1', dow:'Tuesday',
+  summary:'🌸 Philosopher\'s Path + name stamps · 🛍 Nishiki Market · 🏮 Gion · 🍱 Enraku dinner',
+  tags:['book'], cardNote:'First full Kyoto day. Philosopher\'s Path walkable from guesthouse. Enraku dinner 5 PM — awaiting confirmation.',
+  events:[
+    {t:'8:00 AM',dur:'2 hr',type:'activity',title:'🌸 Philosopher\'s Path + name stamps (hanko)',
+     loc:'Tetsugaku-no-michi, Sakyo Ward, Kyoto (walkable from guesthouse)',
+     notes:'2km flat canal path lined with cherry trees (gorgeous in any season). Leads from Ginkakuji area south toward Nanzenji. Ideal for Lila — flat, wide, beautiful. Name stamp shops along the path or in Ginkakuji-area side streets. Get hanko carved here: your names in kanji or katakana.',
+     prep:['Hanko: decide on design (kanji/katakana/romaji) in advance — some shops need 30–60 min to carve','Budget ¥1,000–3,000 per stamp depending on material']},
+    {t:'10:15 AM',dur:'30 min',type:'transit',title:'🏡 Return to guesthouse',
+     loc:'Yasaka no Yado, Higashiyama Ward, Kyoto',
+     notes:'Short walk back.',
+     prep:[]},
+    {t:'12:30 PM',dur:'1 hr',type:'nap',title:'Guesthouse nap 🛏',
+     loc:'Yasaka no Yado',
+     notes:'Best nap location of the whole trip — your own traditional house. Everyone can rest.',
+     prep:[]},
+    {t:'2:00 PM',dur:'30 min',type:'transit',title:'🚌 Bus to Nishiki Market',
+     loc:'Nishiki-koji, Nakagyo Ward, Kyoto (30 min by bus)',
+     notes:'Kyoto City Bus from Higashiyama area. IC cards work on all city buses.',
+     prep:[]},
+    {t:'2:30 PM',dur:'1.5 hr',type:'activity',title:'🛍 Nishiki Market shopping',
+     loc:'Nishiki-koji, Nakagyo Ward, Kyoto ("Kyoto\'s Kitchen")',
+     notes:'Covered shopping street, ~390m long. Famous for pickled vegetables, tofu, fresh mochi, street food. Great for food souvenirs. Busy but manageable outside weekends.',
+     prep:['Many vendors are cash-only','Try: fresh yuba (tofu skin), sesame tofu, pickled vegetables as vegan-safe snacks']},
+    {t:'4:00 PM',dur:'1 hr',type:'activity',title:'🏮 Gion evening stroll',
+     loc:'Gionmachi, Higashiyama Ward, Kyoto (short walk from Nishiki area)',
+     notes:'Historic geisha district. Stone-paved Hanamikoji street, traditional machiya townhouses, occasional glimpse of maiko in the evening. Respectful photography from a distance.',
+     prep:['No photography of geiko/maiko without permission','Stay on the paths — some side alleys are private residential']},
+    {t:'5:00 PM',dur:'1.5–2 hr',type:'food',title:'🍱 Yorozu Enraku — Obanzai dinner',
+     loc:'570-143 Gionmachi Minamigawa, Higashiyama Ward, Kyoto 605-0074',
+     booked:true,
+     notes:'120-year-old Kyoto townhouse in a back alley of Gion. Obanzai course: 7 dishes including obanzai, sashimi, oden, tempura, fish or meat, rice, dessert. ¥5,000 per adult — children not counted in course order.',
+     prep:['⏳ Awaiting email confirmation — if no reply, ask Yasaka no Yado host to call on Jun 15','Phone: 075-533-1511','Course: [For Foreign Nationals Only] Obanzai Course (¥10,000 total for 2 adults)','Shoes off at entrance — tatami seating']}
+  ]
+},
+// ── Jun 17 ─────────────────────────────────────────────────────────
+{ date:17, phase:'kyoto', label:'Tea Ceremony Day', dow:'Wednesday',
+  summary:'⛩ Fushimi Inari · 🍵 Private Tea Ceremony',
+  tags:['book'], cardNote:'Tea ceremony time change requested from Fritz. Currently 1:00 PM — may shift to 2:30 PM.',
+  events:[
+    {t:'7:00 AM',dur:'1.5 hr',type:'activity',title:'⛩ Fushimi Inari Taisha',
+     loc:'68 Fukakusa Yabunouchicho, Fushimi Ward, Kyoto',
+     notes:'Thousands of vermilion torii gates winding up the mountain. FREE, open 24/7. At 7 AM it\'s near-empty and genuinely magical. The full mountain hike is 2–3 hours, but the lower section (to the first major rest point, Yotsutsuji intersection) is ~45 min and is the most photogenic part. Perfect for the family. Lila can walk the first section easily.',
+     prep:['Take the Kintetsu or JR Nara Line to Inari Station (15 min from central Kyoto)','No admission fee','Comfortable shoes — uneven stone steps']},
+    {t:'9:00 AM',dur:'45 min',type:'transit',title:'🏡 Return to guesthouse',
+     loc:'Fushimi Inari → Higashiyama (bus or train)',
+     notes:'~30–45 min return journey.',
+     prep:[]},
+    {t:'10:00 AM',dur:'2.5 hr',type:'prep',title:'☀️ Free morning at guesthouse',
+     loc:'Yasaka no Yado',
+     notes:'Slow morning. Early start deserves a rest. Good opportunity for solo blocks before the afternoon ceremony.',
+     prep:[]},
+    {t:'12:30 PM',dur:'1 hr',type:'nap',title:'Nap 🛏',
+     loc:'Yasaka no Yado',
+     notes:'⚠️ Tea ceremony is at 1:00 PM — nap and ceremony overlap. Time change requested from Fritz (target: 2:30 PM). If unchanged, either push nap to 12:00 PM (slightly early) or split — one parent attends the ceremony with the older child while the other stays back, then reunite after.',
+     prep:[]},
+    {t:'1:00 PM',dur:'1.5 hr',type:'activity',title:'🍵 Private Tea Ceremony',
+     loc:'Confirm with Japan Experience (Kyoto)',
+     booked:true,
+     notes:'Booked via Japan Experience. Private session for the whole family. Traditional matcha preparation and service in a tatami room. Slower-paced and genuinely meditative.',
+     prep:['Wear or bring socks (tatami rooms require socks or bare feet, no shoes)','Avoid wearing strong perfume','Bow slightly when receiving the tea bowl — hold with both hands']}
+  ]
+},
+// ── Jun 18 ─────────────────────────────────────────────────────────
+{ date:18, phase:'kyoto', label:'Nara Day Trip 🦌', dow:'Thursday',
+  summary:'🦌 Nara Park deer · 🏛 Tōdai-ji · ⛩ Kasuga Taisha',
+  tags:['toddler'], cardNote:'June = fawning season. Deer approach freely for senbei crackers. 45 min from Kyoto.',
+  events:[
+    {t:'9:00 AM',dur:'45 min',type:'transit',title:'🚆 Kintetsu train to Nara',
+     loc:'Kintetsu Kyoto Station → Kintetsu Nara Station',
+     notes:'Kintetsu Kyoto Station is in the basement of Kyoto Station. ~45 min direct. Bags stay at the guesthouse.',
+     prep:['IC cards work on Kintetsu','Alternative: JR Nara Line from JR Kyoto Station (~50 min)']},
+    {t:'10:00 AM',dur:'2 hr',type:'activity',title:'🦌 Nara Park — deer feeding',
+     loc:'Nara Park, Nara (surrounding Todaiji Temple)',
+     notes:'~1,200 free-roaming sacred deer. Buy shika senbei (deer crackers, ¥200) from vendors and feed them. June is fawning season — baby deer everywhere. Deer can be bold, especially around food. Open park, large and flat.',
+     prep:['Hold crackers flat — deer will grab upright hands','Bags with food can get grabbed — keep food in pockets','Senbei only — no other food for the deer']},
+    {t:'12:00 PM',dur:'1.5 hr',type:'food',title:'🌿 Lunch + Lila nap in park',
+     loc:'Nara Park picnic area or nearby restaurant',
+     notes:'Plenty of restaurants and cafés near the park entrance. Nara has good vegan options at the various tofu-focused restaurants in the area. Lila can nap on a blanket in the park or in a café.',
+     prep:[]},
+    {t:'2:00 PM',dur:'1 hr',type:'activity',title:'🏛 Tōdai-ji — Great Buddha',
+     loc:'406-1 Zoshicho, Nara (10 min walk from park entrance)',
+     notes:'World\'s largest wooden building. Houses a 15-meter bronze Buddha. Worth exploring the full interior — there are some interactive elements inside.',
+     prep:['¥600 admission for adults, ¥300 for children (6–15)','No admission for Lila']},
+    {t:'3:15 PM',dur:'45 min',type:'activity',title:'⛩ Kasuga Taisha Shrine',
+     loc:'160 Kasuganocho, Nara (15 min walk from Todaiji)',
+     notes:'Gorgeous ancient Shinto shrine with thousands of stone and bronze lanterns lining the approach path. UNESCO World Heritage Site. Beautiful forest setting.',
+     prep:[]},
+    {t:'4:30 PM',dur:'45 min',type:'transit',title:'🚆 Train back to Kyoto',
+     loc:'Kintetsu Nara → Kintetsu Kyoto',
+     notes:'Lila may nap on the train back.',
+     prep:[]}
+  ]
+},
+// ── Jun 19 ─────────────────────────────────────────────────────────
+{ date:19, phase:'kyoto', label:'Higashiyama Day', dow:'Friday',
+  summary:'⛩ Kiyomizudera · 🛍 Ninenzaka + Sannenzaka · ☀️ Slow afternoon',
+  tags:['toddler'], cardNote:'Everything walkable from guesthouse. Slowest day of the week. No agenda after 2 PM.',
+  events:[
+    {t:'9:00 AM',dur:'1 hr',type:'activity',title:'⛩ Kiyomizudera Temple',
+     loc:'1-294 Kiyomizu, Higashiyama Ward, Kyoto (15 min walk from guesthouse)',
+     notes:'Iconic hilltop temple with a famous wooden veranda extending out over the hillside — beautiful views of Kyoto. The "stage" (butai) is what everyone photographs. The approach is steep but paved. Lila will need carrying on the upper sections. Go early before crowds build.',
+     prep:['¥500 admission for adults, ¥200 for children (6–15), free for Lila','Shoes off to enter inner halls']},
+    {t:'10:15 AM',dur:'1.5 hr',type:'activity',title:'🛍 Ninenzaka + Sannenzaka shopping lanes',
+     loc:'Masuyacho, Higashiyama Ward, Kyoto (directly below Kiyomizudera)',
+     notes:'Two-year Slope and Three-Year Slope — stone-paved lanes lined with traditional shops selling ceramics, lacquerware, matcha sweets, fans, textiles, chopsticks. The best shopping street in Kyoto and literally on the way home from Kiyomizudera. Buy souvenirs to ship home via Japan Post tomorrow.',
+     prep:['Mix of cash and card — small shops prefer cash','Legend: if you trip on these slopes you\'ll have 2 or 3 years of bad luck — walk carefully 😄']},
+    {t:'12:00 PM',dur:'30 min',type:'transit',title:'🚶 Walk back to guesthouse',
+     loc:'Yasaka no Yado, Higashiyama Ward',
+     notes:'10–15 min walk downhill from Sannenzaka. Relax.',
+     prep:[]},
+    {t:'12:30 PM',dur:'1 hr',type:'nap',title:'Guesthouse nap 🛏',
+     loc:'Yasaka no Yado',
+     notes:'Best day for a proper long rest — no fixed afternoon plans.',
+     prep:[]},
+    {t:'2:00 PM',dur:'—',type:'prep',title:'☀️ Free afternoon',
+     loc:'Guesthouse or nearby',
+     notes:'No agenda. Options: explore the neighborhood, revisit a shop, sit in the garden, do nothing. Second-to-last Kyoto evening — soak it in.',
+     prep:[]}
+  ]
+},
+// ── Jun 20 ─────────────────────────────────────────────────────────
+{ date:20, phase:'kyoto', label:'Arashiyama Day', dow:'Saturday',
+  summary:'🎋 Bamboo Grove · 🌸 Tenryu-ji · 🐒 Monkey Park · 🍱 Shigetsu lunch · 📦 Japan Post',
+  tags:['toddler','vegan'], cardNote:'Bamboo at dawn = crowd-free. Monkey Park has 20min uphill hike — plan to carry Lila.',
+  events:[
+    {t:'6:30 AM',dur:'30 min',type:'transit',title:'🚌 Travel to Arashiyama',
+     loc:'Higashiyama → Saga-Arashiyama (bus or Hankyu + Randen tram, ~30 min)',
+     notes:'Early start is the whole point. City Bus 11 from Kyoto Station area, or Hankyu Kyoto Line to Katsura, transfer to Arashiyama Station. Arrive before 7 AM.',
+     prep:[]},
+    {t:'7:00 AM',dur:'30 min',type:'activity',title:'🎋 Arashiyama Bamboo Grove',
+     loc:'Ogurayama, Sagatenryuji, Ukyo Ward, Kyoto',
+     notes:'FREE. The famous towering bamboo grove. At 7 AM it\'s peaceful and empty — by 9 AM it\'s packed with tourists. 30 minutes is enough to walk through and back. The light through the bamboo in the morning is extraordinary.',
+     prep:['No entrance fee','Start from the Tenryu-ji north gate for easy flow into the grove']},
+    {t:'7:45 AM',dur:'1 hr',type:'activity',title:'🌸 Tenryu-ji Garden',
+     loc:'68 Susukinobabacho, Sagatenryuji, Ukyo Ward, Kyoto',
+     notes:'UNESCO World Heritage Zen garden with a central pond reflecting the Arashiyama mountains. One of Kyoto\'s most beautiful gardens. The garden (garden admission) is separate from the temple interior (extra fee). Garden only is fine.',
+     prep:['Garden admission: ¥500 adults, ¥300 children (6–15), free for Lila']},
+    {t:'9:15 AM',dur:'1.5 hr',type:'activity',title:'🐒 Arashiyama Monkey Park Iwatayama',
+     loc:'8 Genrokuzancho, Nishikyo Ward, Kyoto',
+     notes:'~120 wild Japanese macaques (snow monkeys) on the mountain. The hike up takes 20 min and is steep — plan to carry Lila. At the top there is a feeding station with a genuinely unusual setup.',
+     prep:['¥550 adults, ¥250 children (4–15), free for Lila','Wear comfortable shoes — unpaved mountain path','Keep food out of sight on the hike up — monkeys will grab it','Hold bags and cameras close at the summit']},
+    {t:'12:00 PM',dur:'1 hr',type:'food',title:'🌿 Shigetsu — Shojin Ryori lunch',
+     loc:'Tenryu-ji Temple, 68 Susukinobabacho, Sagatenryuji, Ukyo Ward, Kyoto',
+     booked:true,
+     notes:'Michelin Bib Gourmand shojin ryori run directly by Tenryu-ji Temple. Entirely plant-based — no meat, fish, eggs, onions or garlic. Yuki course: seasonal dishes on traditional lacquered trays in a tatami hall overlooking the temple garden.',
+     prep:['Reservation ref: 36T5MAJYJ9 · Yuki Course ¥3,800/person','Temple admission ¥500/person payable at the gate before entering the restaurant','Cancellation policy: 100% charge from day before — do not cancel','Settle meal bill at restaurant on the day — bring cash']},
+    {t:'12:30 PM',dur:'45 min',type:'transit',title:'🚌 Bus toward central Kyoto',
+     loc:'Arashiyama → central Kyoto (bus ~30 min)',
+     notes:'Lila may nap on the bus. Get off at central Kyoto (Shijo-Karasuma area).',
+     prep:[]},
+    {t:'2:00 PM',dur:'45 min',type:'logistics',title:'📦 Japan Post — ship souvenirs home',
+     loc:'Central Kyoto Post Office (confirm nearest branch on the day)',
+     notes:'Buy a cardboard box at the counter. Pack it there. Ship via EMS (fast, tracked, arrives in US ~5 days) or SAL (cheaper, slower). Bring passport. Allow 45 min.',
+     prep:['EMS cost: approximately ¥5,000–8,000 for a medium box to the US','Bring passport for customs form','Staff are accustomed to tourists shipping home — helpful and patient']}
+  ]
+},
+// ── Jun 21 ─────────────────────────────────────────────────────────
+{ date:21, phase:'travel', label:'Kyoto → Hakone', dow:'Sunday',
+  summary:'🚄 Hikari 646 · Kyoto → Odawara · ♨️ Hakone Airu ryokan',
+  tags:[], cardNote:'Half-board ryokan — breakfast + dinner included. Private open-air bath. Check in 3 PM.',
+  events:[
+    {t:'9:00 AM',dur:'1 hr',type:'prep',title:'🏡 Check out of Yasaka no Yado',
+     loc:'Yasaka no Yado, Higashiyama Ward, Kyoto',
+     notes:'Confirm forwarded bags were picked up last night (forwarded to Hakone Airu, arrive Jun 21–22). Carry one bag with essentials.',
+     prep:['Confirm takuhaibin receipt — bags should arrive Hakone today or tomorrow','Keep IC cards, Hakone Free Pass, travel docs accessible']},
+    {t:'10:15 AM',dur:'15 min',type:'transit',title:'🚇 Travel to Kyoto Station',
+     loc:'Kyoto Station, Shimogyo Ward, Kyoto (~15 min by bus or taxi)',
+     notes:'Allow extra time to find the Shinkansen platforms.',
+     prep:[]},
+    {t:'10:33 AM',dur:'2 hr 5 min',type:'transit',title:'🚄 Hikari 646 · Kyoto → Odawara',
+     loc:'Kyoto Station → Odawara Station',
+     booked:true,
+     notes:'Confirmed departure 10:33 AM, arrival Odawara 12:38 PM. Smooth ride. Lila may nap around noon.',
+     prep:['Shinkansen tickets in JE package','Odawara is where Hakone Access begins']},
+    {t:'12:38 PM',dur:'—',type:'transit',title:'🚞 Odawara → Hakone Airu',
+     loc:'Odawara Station → Hakone-Yumoto → Hakone Airu',
+     notes:'Take Hakonetozan Train from Odawara to Hakone-Yumoto (15 min). Then short taxi (~¥800–1,200) or 14 min walk to Hakone Airu. Hakone Free Pass activates here.',
+     prep:['Hakone Free Pass covers Hakonetozan Train and most Hakone transport']},
+    {t:'~3:00 PM',dur:'—',type:'activity',title:'♨️ Check in — Hakone Airu',
+     loc:'Hakone Airu, Hakone (confirm address with JE)',
+     booked:true,
+     notes:'Half-board ryokan with private open-air bath (rotenburo) and mountain view. Dinner included tonight. Relax, use the onsen, decompress from Kyoto.',
+     prep:['Check-in from 3 PM','Flag vegan dietary needs to the ryokan in advance','Yukata (cotton robes) provided — wear them in the evening in the ryokan']}
+  ]
+},
+// ── Jun 22 ─────────────────────────────────────────────────────────
+{ date:22, phase:'hakone', label:'Hakone Day ♨️', dow:'Monday',
+  summary:'🚡 Hakone Ropeway · ⛵ Lake Ashi cruise · 🎨 Open Air Museum · ♨️ Onsen',
+  tags:['toddler'], cardNote:'Hakone Free Pass covers all transport. Ryokan dinner included — no evening rush.',
+  events:[
+    {t:'9:00 AM',dur:'1 hr',type:'activity',title:'🚡 Hakone Ropeway',
+     loc:'Sounzan Station → Owakudani → Togendai (Hakone Free Pass)',
+     notes:'Aerial gondola over volcanic Owakudani (active sulfur vents). On a clear day, Mt. Fuji views are stunning. Note: the sulfur smell at Owakudani is strong — worth knowing in advance. There are snacks and small stalls at the Owakudani stop.',
+     prep:['Hakone Free Pass covers the ropeway','Go early for best Mt. Fuji visibility — clouds build in afternoon','If Mt. Fuji is hidden, the volcanic landscape alone is worth it']},
+    {t:'10:30 AM',dur:'1 hr',type:'activity',title:'⛵ Lake Ashi Cruise',
+     loc:'Togendai Pier → Hakone-machi or Moto-Hakone (Hakone Free Pass)',
+     notes:'Scenic boat cruise across Lake Ashi with Mt. Fuji backdrop on clear days. Beautiful mountain lake scenery regardless of weather.',
+     prep:['Hakone Free Pass covers cruise','Sit on the upper deck for best views']},
+    {t:'12:00 PM',dur:'1 hr',type:'food',title:'🍱 Lunch near lake shore',
+     loc:'Hakone-machi or Moto-Hakone village',
+     notes:'Several restaurants with lake views in the Moto-Hakone area. Soba and tofu dishes widely available. Vegan-friendly options present.',
+     prep:[]},
+    {t:'1:00 PM',dur:'30 min',type:'transit',title:'🏡 Return to ryokan for nap',
+     loc:'Hakone Airu',
+     notes:'Lila naps at the ryokan for a full nap in comfort.',
+     prep:[]},
+    {t:'1:30 PM',dur:'1 hr',type:'nap',title:'Ryokan nap 🛏',
+     loc:'Hakone Airu',
+     notes:'Private room, comfortable futons. Best nap of the whole trip.',
+     prep:[]},
+    {t:'2:30 PM',dur:'2 hr',type:'activity',title:'🎨 Hakone Open Air Museum',
+     loc:'1121 Ninotaira, Hakone-machi, Ashigarashimo-gun, Kanagawa',
+     notes:'Outstanding sculpture museum spread across a large outdoor garden. Features a dedicated children\'s area with several interactive sculptures. Wide open outdoor spaces throughout.',
+     prep:['¥1,600 adults, ¥800 children (4–15), free under 4','Hakone Free Pass holders get discount — check at entrance','Wear comfortable shoes for the garden paths']},
+    {t:'~5:30 PM',dur:'—',type:'activity',title:'♨️ Evening onsen + ryokan dinner',
+     loc:'Hakone Airu',
+     notes:'Use the private open-air bath in your room. Ryokan dinner is half-board — aim to finish eating by 6:30 PM to keep kids on schedule. Wear yukata for dinner.',
+     prep:['Request early dinner sitting (5:00–5:30 PM) at check-in','Private rotenburo in your room — use it freely at any time']}
+  ]
+},
+// ── Jun 23 ─────────────────────────────────────────────────────────
+{ date:23, phase:'travel', label:'Travel Home ✈️', dow:'Tuesday',
+  summary:'🚃 Romance Car → Shinjuku · 🏙 Brief explore · ✈️ NH126 home',
+  tags:[], cardNote:'Romance Car time TBC from JE. Store bags at Shinjuku. Arrive Haneda by 6:30 PM.',
+  events:[
+    {t:'Morning',dur:'—',type:'food',title:'🍚 Ryokan breakfast',
+     loc:'Hakone Airu',
+     notes:'Half-board includes breakfast. Traditional Japanese breakfast (rice, miso, grilled fish, pickles). Request Western-style or vegan alternative at check-in if needed.',
+     prep:['Confirm breakfast time at check-in — typically 7:30–9:00 AM']},
+    {t:'Morning',dur:'—',type:'prep',title:'📦 Check out + Takuhaibin to Haneda',
+     loc:'Hakone Airu',
+     notes:'Ask ryokan to forward bags to Haneda Airport (ANA terminal) — they can arrange kuroneko delivery. You travel with carry-ons only.',
+     prep:['Confirm bags will arrive before your 9:05 PM flight — arrange for AM pickup','Keep passports, tickets, and essentials in carry bag']},
+    {t:'TBC',dur:'~1.5 hr',type:'transit',title:'🚃 Romance Car · Hakone-Yumoto → Shinjuku',
+     loc:'Hakone-Yumoto Station → Shinjuku Station (Odakyu Romance Car)',
+     booked:true,
+     notes:'Scenic express train from Hakone to Shinjuku. Time TBC from Japan Experience. Comfortable, reserved seating.',
+     prep:['Ticket in JE package','Confirm exact departure time with JE']},
+    {t:'TBC',dur:'1–2 hr',type:'activity',title:'🏙 Shinjuku — brief explore',
+     loc:'Shinjuku, Tokyo',
+     notes:'Last hours in Tokyo. Store carry-ons in coin lockers at Shinjuku Station (large ones near the east exit). Light explore — Omoide Yokocho (Memory Lane, tiny alley of grilled skewer restaurants), department store basement food halls, or just sit in a café.',
+     prep:['Coin lockers at Shinjuku Station: ¥400–900 depending on size','Leave enough time to get to Haneda — allow 1.5 hrs minimum']},
+    {t:'~6:00 PM',dur:'45 min',type:'transit',title:'🚇 Shinjuku → Haneda Airport',
+     loc:'Shinjuku Station → Haneda Airport Terminal 3',
+     notes:'Keikyu Line from Shinagawa (transfer at Shinjuku → Shinagawa by JR, then Keikyu to Haneda T3). Or take Airport Limousine Bus directly from Shinjuku (~1 hr). Allow 1.5 hrs total.',
+     prep:['Arrive at Haneda Terminal 3 by 6:30 PM for 9:05 PM departure','ANA check-in opens 3 hrs before — aim to check in by 7 PM']},
+    {t:'9:05 PM',dur:'10 hr',type:'transit',title:'✈️ NH126 · Haneda → LAX',
+     loc:'Haneda Terminal 3 → LAX',
+     booked:true,
+     notes:'Final flight home. Arrive LAX approximately 3:05 PM same day (time zones). Schedule Uber from LAX home in advance.',
+     prep:['Pre-schedule return Uber from LAX to Westminster','Request car seat option in the app again for the return']}
+  ]
+}
+];
+
+// ─── TAGS ──────────────────────────────────────────────────────────
+const tagMap = {
+  book:['t-book','📋 book'],
+  vegan:['t-vegan','🌿 vegan'],
+  toddler:['t-toddler','🍼 toddler'],
+  ghibli:['t-ghibli','🎬 anime'],
+  split:['t-split','👥 split']
+};
+
+const phaseColor = {
+  tokyo:'var(--tokyo)',kyoto:'var(--kyoto)',
+  hakone:'var(--hakone)',travel:'var(--travel)'
+};
+
+// ─── STATE ─────────────────────────────────────────────────────────
+let currentIdx = null;
+
+// ─── OVERVIEW ──────────────────────────────────────────────────────
+function renderOverview() {
+  const ov = document.getElementById('ov');
+  const nights = [
+    {l:'Tobu Hotel Levant Tokyo',p:'tokyo'},{l:'Tobu Hotel Levant Tokyo',p:'tokyo'},
+    {l:'Tobu Hotel Levant Tokyo',p:'tokyo'},{l:'Tobu Hotel Levant Tokyo',p:'tokyo'},
+    {l:'Tobu Hotel Levant Tokyo',p:'tokyo'},{l:'Tobu Hotel Levant Tokyo',p:'tokyo'},
+    {l:'Yasaka no Yado',p:'kyoto'},{l:'Yasaka no Yado',p:'kyoto'},
+    {l:'Yasaka no Yado',p:'kyoto'},{l:'Yasaka no Yado',p:'kyoto'},
+    {l:'Yasaka no Yado',p:'kyoto'},{l:'Yasaka no Yado',p:'kyoto'},
+    {l:'Hakone Airu',p:'hakone'},{l:'Hakone Airu',p:'hakone'},
+    {l:'Fly Home',p:'travel'}
+  ];
+  const dates = ['9','10','11','12','13','14','15','16','17','18','19','20','21','22','23'];
+
+  // Accom bar
+  let barSegs = nights.map((n,i) =>
+    `<div class="accom-seg" style="background:${phaseColor[n.p]}" title="Jun ${dates[i]}: ${n.l}">${dates[i]}</div>`
+  ).join('');
+
+  // Accom name labels
+  const runs = [];
+  let cur = nights[0].p, st = 0;
+  for (let i=1;i<=nights.length;i++){
+    if(i===nights.length||nights[i].p!==cur){runs.push({p:cur,len:i-st});if(i<nights.length){cur=nights[i].p;st=i;}}
+  }
+  const nameMap={tokyo:'Tobu Hotel Levant Tokyo',kyoto:'Yasaka no Yado',hakone:'Hakone Airu ♨️',travel:'Fly home'};
+  let nameCols = runs.map(r =>
+    `<div style="grid-column:span ${r.len};font-size:9px;font-weight:500;text-align:center;color:${phaseColor[r.p]};padding-top:3px;text-transform:uppercase;letter-spacing:.05em">${nameMap[r.p]}</div>`
+  ).join('');
+
+  // Calendar weeks
+  const week1 = days.slice(0,7), week2 = days.slice(7,14), week3 = days.slice(14,16);
+  function buildCards(arr,before=0,after=0){
+    let h='';
+    for(let i=0;i<before;i++) h+='<div class="day-card empty"></div>';
+    arr.forEach((d,idx)=>{
+      const globalIdx = arr===week1?idx:(arr===week2?idx+7:idx+14);
+      const tags=(d.tags||[]).map(t=>`<span class="tag ${tagMap[t][0]}">${tagMap[t][1]}</span>`).join('');
+      h+=`<div class="day-card ${d.phase}" data-idx="${globalIdx}">
+        ${d.split?'<div class="split-dot"></div>':''}
+        <div class="day-num">${d.date}</div>
+        <div class="day-lbl">Jun · ${d.label}</div>
+        <div class="day-anchor">${d.summary}</div>
+        <div class="day-tags">${tags}</div>
+      </div>`;
+    });
+    for(let i=0;i<after;i++) h+='<div class="day-card empty"></div>';
+    return h;
+  }
+
+  ov.innerHTML = `
+    <div class="ov-header" style="display:block">
+      <div>
+        <h1>Family Trip to <em>Japan</em> — June 2026</h1>
+        <div class="ov-sub">Kenady · Michael · Laney (10) · Lila (2.5) &nbsp;·&nbsp; 3 bases · 14 nights · ANA NH125/126</div>
+      </div>
+      <button class="gd-launch-btn" onclick="showGuided()">▶ Guided Mode</button></div>
+    </div>
+    <div class="cal-wrap">
+      <div class="week-hdrs"><div class="wh">Mon</div><div class="wh">Tue</div><div class="wh">Wed</div><div class="wh">Thu</div><div class="wh">Fri</div><div class="wh">Sat</div><div class="wh">Sun</div></div>
+      <div class="city-hdr tokyo">🗼 Tokyo &nbsp;·&nbsp; Jun 9–14</div>
+      <div class="week-row">${buildCards(week1)}</div>
+      <div class="city-hdr kyoto">⛩ Kyoto &nbsp;·&nbsp; Jun 15–20</div>
+      <div class="week-row">${buildCards(week2)}</div>
+      <div class="city-hdr hakone">♨️ Hakone &nbsp;·&nbsp; Jun 21–22</div>
+      <div class="week-row">${buildCards(week3,0,5)}</div>
+    </div>`;
+
+  // Card click listeners
+  ov.querySelectorAll('.day-card[data-idx]').forEach(card => {
+    card.addEventListener('click', () => {
+      const idx = parseInt(card.dataset.idx);
+      showDetail(idx);
+    });
+  });
+}
+
+// ─── DETAIL VIEW ───────────────────────────────────────────────────
+const typeLabel = {activity:'Activity',transit:'Transit',food:'Food & Drink',nap:'Rest / Nap',logistics:'Logistics',prep:'Preparation'};
+const typeIcon  = {activity:'◆',transit:'→',food:'◉',nap:'◌',logistics:'◈',prep:'◇'};
+
+function showDetail(idx) {
+  currentIdx = idx;
+  document.getElementById('ov').classList.remove('active');
+  document.getElementById('gd').classList.remove('active');
+  document.getElementById('dt').classList.add('active');
+  renderDetail(idx);
+}
+
+function showOverview() {
+  document.getElementById('dt').classList.remove('active');
+  document.getElementById('gd').classList.remove('active');
+  const ov = document.getElementById('ov');
+  if (!ov.innerHTML.trim()) renderOverview();
+  ov.classList.add('active');
+  currentIdx = null;
+}
+
+function renderDetail(idx) {
+  const d = days[idx];
+  const dt = document.getElementById('dt');
+  const phaseNames = {tokyo:'Tokyo',kyoto:'Kyoto',hakone:'Hakone',travel:'Travel day'};
+
+  // Day strip
+  let strip = days.map((dd, i) => {
+    const wkSep = (i===7||i===14) ? '<div class="ds-sep"></div>' : '';
+    return `${wkSep}<div class="ds-day ${dd.phase}${i===idx?' active':''}" data-di="${i}">${dd.date}</div>`;
+  }).join('');
+
+  // Events
+  let evHtml = '';
+  d.events.forEach((ev, ei) => {
+    const isLast = ei === d.events.length - 1;
+    const phase = d.phase;
+    evHtml += `
+      <div class="ev-row type-${ev.type} phase-${phase}">
+        <div class="ev-time-col"><span class="ev-time">${ev.t}</span></div>
+        <div class="ev-connector">
+          <div class="ev-dot"></div>
+          ${!isLast ? '<div class="ev-connector-line"></div>' : ''}
+        </div>
+        <div class="ev-body">
+          <div class="ev-header">
+            <div class="ev-title">${ev.title}</div>
+            ${ev.dur ? `<div class="ev-dur">${ev.dur}</div>` : ''}
+            ${ev.booked ? '<div class="ev-booked">✅ Booked</div>' : ''}
+            ${ev.split ? `<div class="ev-split-badge">👥 Split day</div>` : ''}
+          </div>
+          ${ev.loc ? `<div class="ev-loc"><span class="ev-loc-icon">📍</span><span>${ev.loc}</span><a class="maps-btn" href="https://maps.google.com/?q=${encodeURIComponent(ev.loc)}" target="_blank" rel="noopener">Directions →</a></div>` : ''}
+          ${ev.notes ? `<div class="ev-notes">${ev.notes}</div>` : ''}
+          ${ev.prep && ev.prep.length ? `
+            <div class="ev-prep">
+              <div class="ev-prep-lbl">Prep / notes</div>
+              ${ev.prep.map(p => `<div class="ev-prep-item">${p}</div>`).join('')}
+            </div>` : ''}
+        </div>
+      </div>`;
+  });
+
+  const phaseDot = `<span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${phaseColor[d.phase]};margin-right:8px;vertical-align:middle"></span>`;
+
+  dt.innerHTML = `
+    <div class="dt-topbar">
+      <button class="btn-back" id="back-btn">← Overview</button>
+      <div class="dt-title-wrap">
+        <div class="dt-date">${phaseDot}Jun ${d.date} · ${d.dow} · ${d.label}</div>
+        <div class="dt-date-sub">${phaseNames[d.phase]} &nbsp;·&nbsp; ${d.summary}</div>
+      </div>
+      <div class="dt-nav">
+        <button class="btn-nav" id="prev-btn" ${idx===0?'disabled':''}>‹</button>
+        <button class="btn-nav" id="next-btn" ${idx===days.length-1?'disabled':''}>›</button>
+      </div>
+    </div>
+    <div class="day-strip" id="day-strip">${strip}</div>
+    <div class="timeline">${evHtml}</div>`;
+
+  document.getElementById('back-btn').addEventListener('click', showOverview);
+  document.getElementById('prev-btn').addEventListener('click', () => { if(idx>0) renderDetail(idx-1); });
+  document.getElementById('next-btn').addEventListener('click', () => { if(idx<days.length-1) renderDetail(idx+1); });
+  document.querySelectorAll('.ds-day').forEach(el => {
+    el.addEventListener('click', () => renderDetail(parseInt(el.dataset.di)));
+  });
+  dt.scrollTop = 0;
+}
+
+
+// ─── GUIDED MODE ───────────────────────────────────────────────────
+const GD_KEY = 'japan2026_v1';
+function gdLoad(){try{const s=localStorage.getItem(GD_KEY);return s?JSON.parse(s):null;}catch(e){return null;}}
+function gdSave(s){try{localStorage.setItem(GD_KEY,JSON.stringify(s));}catch(e){}}
+function gdClear(){try{localStorage.removeItem(GD_KEY);}catch(e){}}
+
+const gdAccom = {tokyo:'Tobu Hotel Levant Tokyo',kyoto:'Yasaka no Yado',hakone:'Hakone Airu ♨️',travel:null};
+
+function showGuided(){
+  document.getElementById('ov').classList.remove('active');
+  document.getElementById('dt').classList.remove('active');
+  document.getElementById('gd').classList.add('active');
+  const s = gdLoad();
+  if(!s) { renderGdWelcome(); return; }
+  if(s.phase==='morning') renderGdMorning(s.dayIdx);
+  else if(s.phase==='event') renderGdEvent(s.dayIdx, s.evtIdx);
+  else if(s.phase==='night') renderGdNight(s.dayIdx);
+  else renderGdWelcome();
+}
+
+function gdTopbar(ovStyle, logoStyle){
+  return `<div class="gd-topbar">
+    <span class="gd-topbar-logo" style="${logoStyle||''}">Japan 2026</span>
+    <button class="gd-ov-link" style="${ovStyle||''}" onclick="showOverview()">Overview</button>
+  </div>`;
+}
+
+function renderGdWelcome(){
+  const saved = gdLoad();
+  const gd = document.getElementById('gd');
+  const hasSaved = saved && saved.phase && saved.phase !== 'welcome';
+  const resumeDay = hasSaved ? days[saved.dayIdx] : null;
+  const phaseClass = resumeDay ? resumeDay.phase : 'welcome';
+
+  gd.innerHTML = `<div class="gd-screen">
+    ${gdTopbar()}
+    <div class="gd-card">
+      <div class="gd-welcome-hero">
+        <div class="gd-welcome-icon">🌸</div>
+        <div class="gd-welcome-title">Japan 2026</div>
+        <div class="gd-welcome-sub">Beaudoin Family · Jun 8–23 · 16 days</div>
+      </div>
+      <div class="gd-phases-row">
+        <div class="gd-phase-chip" style="background:var(--tokyo-bg);color:var(--tokyo)">🗼 Tokyo</div>
+        <div class="gd-phase-chip" style="background:var(--kyoto-bg);color:var(--kyoto)">⛩ Kyoto</div>
+        <div class="gd-phase-chip" style="background:var(--hakone-bg);color:var(--hakone)">♨️ Hakone</div>
+      </div>
+      <div class="gd-spacer"></div>
+      ${hasSaved
+        ? `<button class="gd-btn ${resumeDay.phase}" onclick="showGuided()">` +
+            (saved.phase === 'morning' ? `Start Day ${saved.dayIdx+1} · Jun ${days[saved.dayIdx].date} →` :
+             saved.phase === 'event' ? `Continue Day ${saved.dayIdx+1} · Jun ${days[saved.dayIdx].date} →` :
+             `Resume Journey →`) +
+           `</button>
+           <button style="background:none;border:none;font-size:11px;color:var(--ink3);cursor:pointer;padding:8px;font-family:'DM Sans',sans-serif;text-decoration:underline;text-underline-offset:2px;margin-top:2px" onclick="gdClear();renderGdWelcome()">Start over from Day 1</button>`
+        : `<button class="gd-btn welcome" onclick="gdBegin()">Start Journey →</button>`
+      }
+    </div>
+  </div>`;
+}
+
+function gdBegin(){
+  gdSave({phase:'morning', dayIdx:0});
+  renderGdMorning(0);
+}
+
+function renderGdMorning(dayIdx){
+  const d = days[dayIdx];
+  const gd = document.getElementById('gd');
+  const pc = phaseColor[d.phase];
+  const pn = {tokyo:'Tokyo',kyoto:'Kyoto',hakone:'Hakone',travel:'Travel Day'}[d.phase];
+  const greet = ['Good morning!','Rise and shine! ☀️','Ready for today?','Let us do this!','Good morning! ☀️'][dayIdx % 5];
+
+  gd.innerHTML = `<div class="gd-screen">
+    ${gdTopbar()}
+    <div class="gd-card">
+      <div class="gd-phase-bar" style="background:${pc}"></div>
+      <div class="gd-phase-row">
+        <div class="gd-phase-label" style="color:${pc}">${pn}</div>
+        <div class="gd-progress">Day ${dayIdx+1} of ${days.length}</div>
+      </div>
+      <div class="gd-morning-eyebrow">${greet}</div>
+      <div class="gd-morning-date">Jun ${d.date} · ${d.dow}</div>
+      <div class="gd-morning-title">${d.label}</div>
+      <div class="gd-morning-summary">${d.summary}</div>
+      <div class="gd-spacer"></div>
+      <button class="gd-btn ${d.phase}" onclick="gdStartDay(${dayIdx})">Let's Go →</button>
+    </div>
+  </div>`;
+}
+
+function gdStartDay(dayIdx){
+  gdSave({phase:'event', dayIdx, evtIdx:0});
+  renderGdEvent(dayIdx, 0);
+}
+
+function renderGdEvent(dayIdx, evtIdx){
+  const d = days[dayIdx];
+  const ev = d.events[evtIdx];
+  const gd = document.getElementById('gd');
+  const pc = phaseColor[d.phase];
+  const pn = {tokyo:'Tokyo',kyoto:'Kyoto',hakone:'Hakone',travel:'Travel'}[d.phase];
+  const isLast = evtIdx === d.events.length - 1;
+
+  // Extract leading emoji — all titles are formatted "emoji text"
+  const _tp = ev.title.split(' ');
+  const icon = _tp[0] || '📍';
+  const titleText = _tp.slice(1).join(' ') || ev.title;
+
+  const locHtml = ev.loc ? `<div class="gd-ev-loc">
+    <div class="gd-ev-loc-text">📍 ${ev.loc}</div>
+    <a class="gd-maps-link" href="https://maps.google.com/?q=${encodeURIComponent(ev.loc)}" target="_blank" rel="noopener">Maps →</a>
+  </div>` : '';
+
+  const prepHtml = ev.prep && ev.prep.length ? `<div class="gd-ev-prep">
+    <div class="gd-ev-prep-lbl">Notes</div>
+    ${ev.prep.map(p => `<div class="gd-ev-prep-item">${p}</div>`).join('')}
+  </div>` : '';
+
+  const btnLabel = isLast ? 'Done for now ✓' : 'Continue →';
+
+  gd.innerHTML = `<div class="gd-screen">
+    ${gdTopbar()}
+    <div class="gd-card">
+      <div class="gd-phase-bar" style="background:${pc}"></div>
+      <div class="gd-phase-row">
+        <div class="gd-phase-label" style="color:${pc}">${pn} · Jun ${d.date}</div>
+        <div class="gd-progress">${evtIdx+1} of ${d.events.length}</div>
+      </div>
+      <div class="gd-ev-icon">${icon}</div>
+      <div class="gd-ev-title">${titleText}</div>
+      <div class="gd-ev-badges">
+        ${ev.t && ev.t !== 'Morning' ? `<div class="gd-badge gd-badge-time">🕐 ${ev.t}</div>` : ''}
+        ${ev.dur && ev.dur !== '—' ? `<div class="gd-badge gd-badge-dur">${ev.dur}</div>` : ''}
+        ${ev.booked ? `<div class="gd-badge gd-badge-booked">✅ Booked</div>` : ''}
+      </div>
+      ${locHtml}
+      ${ev.notes ? `<div class="gd-ev-notes">${ev.notes}</div>` : ''}
+      ${prepHtml}
+      <div class="gd-spacer"></div>
+      <button class="gd-btn ${d.phase}" onclick="gdAdvance(${dayIdx},${evtIdx})">${btnLabel}</button>
+    </div>
+  </div>`;
+  gd.scrollTop = 0;
+}
+
+function gdAdvance(dayIdx, evtIdx){
+  const d = days[dayIdx];
+  if(evtIdx < d.events.length - 1){
+    gdSave({phase:'event', dayIdx, evtIdx: evtIdx+1});
+    renderGdEvent(dayIdx, evtIdx+1);
+  } else {
+    gdSave({phase:'night', dayIdx});
+    renderGdNight(dayIdx);
+  }
+}
+
+function renderGdNight(dayIdx){
+  const d = days[dayIdx];
+  const isTrip = dayIdx === days.length - 1;
+  const accom = gdAccom[d.phase];
+  const gd = document.getElementById('gd');
+
+  gd.innerHTML = `<div class="gd-night-screen">
+    <div class="gd-night-topbar">
+      <button class="gd-ov-link" style="color:#94A3B8;border-color:rgba(255,255,255,.15)" onclick="showOverview()">Overview</button>
+    </div>
+    <div class="gd-night-body">
+      <div class="gd-night-icon">${isTrip ? '✈️' : '🌙'}</div>
+      <div class="gd-night-heading">${isTrip ? 'Safe travels home!' : 'Day ' + (dayIdx+1) + ' complete!'}</div>
+      <div class="gd-night-sub">${isTrip
+        ? 'What an incredible adventure. Sayonara Japan 🌸'
+        : 'Tonight at <strong style="color:white">' + (accom||'your accommodation') + '</strong>' +
+          (dayIdx+1 < days.length
+            ? '<br><br><span style="color:#CBD5E1;font-size:14px">Up next: <strong>Day ' + (dayIdx+2) + ' &middot; Jun ' + days[dayIdx+1].date + '</strong><br>' + days[dayIdx+1].label + '</span>'
+            : '')
+      }</div>
+      <button class="gd-btn gd-btn-night-main" style="max-width:360px;width:100%;border-radius:12px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600" onclick="gdGoodNight(${dayIdx})">${isTrip ? 'The End 🌸' : 'Good Night 🌙'}</button>
+    </div>
+  </div>`;
+}
+
+function gdGoodNight(dayIdx){
+  const nextIdx = dayIdx + 1;
+  if(nextIdx < days.length){
+    gdSave({phase:'morning', dayIdx: nextIdx});
+    renderGdWelcome(); // Back to home screen - they'll resume tomorrow
+  } else {
+    gdClear();
+    renderGdWelcome();
+  }
+}
+
+// ─── INIT ──────────────────────────────────────────────────────────
+showGuided();
+</script>
+</body>
+</html>
