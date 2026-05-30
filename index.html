@@ -65,13 +65,13 @@ h1 em{color:var(--kyoto);font-style:normal;}
 .day-card.kyoto::before{background:var(--kyoto);}
 .day-card.hakone::before{background:var(--hakone);}
 .day-card.travel::before{background:var(--travel);}
-.day-num{font-size:16px;font-weight:500;line-height:1;margin-bottom:1px;}
+.day-num{font-size:20px;font-weight:500;line-height:1;margin-bottom:2px;}
 .day-card.tokyo .day-num{color:var(--tokyo);}
 .day-card.kyoto .day-num{color:var(--kyoto);}
 .day-card.hakone .day-num{color:var(--hakone);}
 .day-card.travel .day-num{color:var(--travel);}
-.day-lbl{font-size:8px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--ink3);margin-bottom:5px;}
-.day-anchor{font-size:10.5px;font-weight:500;color:var(--ink);line-height:1.35;flex:1;}.day-anchor-item{padding:2px 0;border-bottom:1px dotted rgba(0,0,0,.08);}.day-anchor-item:last-child{border-bottom:none;}
+.day-lbl{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.07em;color:var(--ink3);margin-bottom:5px;}
+.day-anchor{font-size:13px;font-weight:500;color:var(--ink);line-height:1.35;flex:1;}.day-anchor-item{padding:2px 0;border-bottom:1px dotted rgba(0,0,0,.08);}.day-anchor-item:last-child{border-bottom:none;}
 .day-tags{display:flex;flex-wrap:wrap;gap:3px;margin-top:5px;}
 .city-hdr{display:flex;align-items:center;gap:10px;padding:16px 2px 6px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;}
 .city-hdr::after{content:'';flex:1;height:1px;background:var(--border);}
@@ -182,9 +182,9 @@ h1 em{color:var(--kyoto);font-style:normal;}
   .week-row{grid-template-columns:1fr 1fr;gap:5px;}
   .day-card{min-height:110px;padding:8px 8px 7px;}
   .day-card.empty{display:none;}
-  .day-num{font-size:15px;}
+  .day-num{font-size:18px;}
   .day-lbl{font-size:8px;}
-  .day-anchor{font-size:10px;}
+  .day-anchor{font-size:12px;}
   .tag{font-size:9px;padding:2px 5px;}
   .ov-notes{grid-template-columns:1fr;}
   .ug{grid-template-columns:1fr;}
@@ -206,7 +206,7 @@ h1 em{color:var(--kyoto);font-style:normal;}
 .gd-screen{flex:1;display:flex;flex-direction:column;max-width:520px;margin:0 auto;width:100%;min-height:100vh;}
 .gd-topbar{display:flex;justify-content:space-between;align-items:center;padding:16px 20px 8px;}
 .gd-topbar-logo{font-size:10px;font-weight:700;color:var(--ink3);letter-spacing:.1em;text-transform:uppercase;}
-.gd-ov-link{font-size:11px;color:var(--ink3);background:none;border:1px solid var(--border);border-radius:20px;cursor:pointer;padding:5px 12px;font-family:'DM Sans',sans-serif;transition:all .15s;}
+.gd-ov-link{font-size:11px;color:var(--ink3);background:none;border:1px solid var(--border);border-radius:20px;cursor:pointer;padding:5px 12px;font-family:'DM Sans',sans-serif;transition:all .15s;}.gd-back-btn{font-size:11px;color:var(--ink3);background:none;border:1px solid var(--border);border-radius:20px;cursor:pointer;padding:5px 12px;font-family:'DM Sans',sans-serif;transition:all .15s;}.gd-back-btn:hover{background:var(--ink);color:white;border-color:var(--ink);}
 .gd-ov-link:hover{background:var(--ink);color:white;border-color:var(--ink);}
 .gd-card{flex:1;padding:20px 24px 32px;display:flex;flex-direction:column;}
 .gd-phase-bar{height:4px;border-radius:2px;margin-bottom:20px;flex-shrink:0;}
@@ -260,7 +260,7 @@ h1 em{color:var(--kyoto);font-style:normal;}
 .gd-btn.travel{background:var(--travel);color:white;}
 .gd-btn.welcome{background:var(--kyoto);color:white;}
 /* Guided mode button in overview */
-.gd-launch-btn{display:flex;align-items:center;gap:6px;padding:8px 16px;background:var(--kyoto);color:white;border:none;border-radius:8px;font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:opacity .15s;white-space:nowrap;}
+.gd-launch-btn{display:flex;align-items:center;gap:6px;padding:8px 16px;background:#C84B78;color:white;border:none;border-radius:8px;font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:opacity .15s;white-space:nowrap;align-self:flex-end;margin-left:auto;}
 .gd-launch-btn:hover{opacity:.88;}
 @media(max-width:640px){.gd-ev-title{font-size:20px;}.gd-morning-title{font-size:24px;}.gd-welcome-title{font-size:26px;}}
 </style>
@@ -305,7 +305,7 @@ const days = [
 },
 // ── Jun 9 ──────────────────────────────────────────────────────────
 { date:9, phase:'tokyo', label:'Arrive Tokyo', dow:'Tuesday',
-  summary:'✈️ Land Haneda · 🏨 Hotel Levant Tokyo',
+  summary:'✈️ Land Haneda · 🧳 Hotel Levant Tokyo',
   tags:[], cardNote:'IC cards + pocket WiFi from Japan Experience. Recovery night only.',
   events:[
     {t:'9:00 PM',dur:'2 hr',type:'transit',title:'🛬 Land + Immigration + Customs',
@@ -484,7 +484,7 @@ const days = [
 
 // ── Jun 15 ─────────────────────────────────────────────────────────
 { date:15, phase:'travel', label:'Tokyo → Kyoto', dow:'Monday',
-  summary:'🚃 Nozomi 251 · Tokyo → Kyoto · 🏨 Yasaka no Yado',
+  summary:'🚃 Nozomi 251 · Tokyo → Kyoto · 🧳 Yasaka no Yado',
   tags:[], cardNote:'Shinkansen 10:00 AM. Check-in 3–6 PM. Right side of train for Mt. Fuji.',
   events:[
     {t:'8:30 AM',dur:'30 min',type:'prep',title:'🏨 Check out of Tobu Hotel Levant',
@@ -670,8 +670,8 @@ const days = [
   ]
 },
 // ── Jun 21 ─────────────────────────────────────────────────────────
-{ date:21, phase:'travel', label:'Kyoto → Hakone', dow:'Sunday',
-  summary:'🚃 Hikari 646 · Kyoto → Odawara · 🏨 Hakone Airu',
+{ date:21, phase:'hakone', label:'Kyoto → Hakone', dow:'Sunday',
+  summary:'🚃 Hikari 646 · Kyoto → Odawara · 🧳 Hakone Airu',
   tags:[], cardNote:'Half-board ryokan — breakfast + dinner included. Private open-air bath. Check in 3 PM.',
   events:[
     {t:'9:00 AM',dur:'1 hr',type:'prep',title:'🏡 Check out of Yasaka no Yado',
@@ -818,7 +818,7 @@ function renderOverview() {
   ).join('');
 
   // Calendar weeks
-  const week1 = days.slice(0,7), week2 = days.slice(7,14), week3 = days.slice(14,16);
+  const week1 = days.slice(0,7), week2 = days.slice(7,13), week3 = days.slice(13,16);
   function buildCards(arr,before=0,after=0){
     let h='';
     for(let i=0;i<before;i++) h+='<div class="day-card empty"></div>';
@@ -837,20 +837,20 @@ function renderOverview() {
 
   ov.innerHTML = `
     <div class="ov-header" style="display:block">
-      <div>
-        <h1>Family Trip to <em>Japan</em> — June 2026</h1>
-        <div class="ov-sub">Kenady · Michael · Laney (10) · Lila (2.5) &nbsp;·&nbsp; 3 bases · 14 nights · ANA NH125/126</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+        <h1>Japan 2026</h1>
+        <button class="gd-launch-btn" onclick="showGuided()">▶ Guided Mode</button>
       </div>
-      <button class="gd-launch-btn" onclick="showGuided()">▶ Guided Mode</button></div>
+      <div class="ov-sub">Kenady · Michael · Laney (10) · Lila (2.5) &nbsp;·&nbsp; 3 bases · 14 nights · ANA NH125/126</div></div>
     </div>
     <div class="cal-wrap">
       <div class="week-hdrs"><div class="wh">Mon</div><div class="wh">Tue</div><div class="wh">Wed</div><div class="wh">Thu</div><div class="wh">Fri</div><div class="wh">Sat</div><div class="wh">Sun</div></div>
       <div class="city-hdr tokyo">🗼 Tokyo &nbsp;·&nbsp; Jun 9–14</div>
       <div class="week-row">${buildCards(week1)}</div>
       <div class="city-hdr kyoto">⛩ Kyoto &nbsp;·&nbsp; Jun 15–20</div>
-      <div class="week-row">${buildCards(week2)}</div>
+      <div class="week-row">${buildCards(week2,0,1)}</div>
       <div class="city-hdr hakone">♨️ Hakone &nbsp;·&nbsp; Jun 21–22</div>
-      <div class="week-row">${buildCards(week3,0,5)}</div>
+      <div class="week-row">${buildCards(week3,0,4)}</div>
     </div>`;
 
   // Card click listeners
@@ -971,9 +971,9 @@ function showGuided(){
   else renderGdWelcome();
 }
 
-function gdTopbar(ovStyle, logoStyle){
+function gdTopbar(ovStyle, logoStyle, backHtml){
   return `<div class="gd-topbar">
-    <span class="gd-topbar-logo" style="${logoStyle||''}">Japan 2026</span>
+    ${backHtml || `<span class="gd-topbar-logo" style="${logoStyle||''}">Japan 2026</span>`}
     <button class="gd-ov-link" style="${ovStyle||''}" onclick="showOverview()">Overview</button>
   </div>`;
 }
@@ -1012,6 +1012,16 @@ function renderGdWelcome(){
   </div>`;
 }
 
+function gdBack(dayIdx, evtIdx){
+  if(evtIdx > 0){
+    gdSave({phase:'event', dayIdx, evtIdx: evtIdx-1});
+    renderGdEvent(dayIdx, evtIdx-1);
+  } else {
+    gdSave({phase:'morning', dayIdx});
+    renderGdMorning(dayIdx);
+  }
+}
+
 function gdBegin(){
   gdSave({phase:'morning', dayIdx:0});
   renderGdMorning(0);
@@ -1025,7 +1035,7 @@ function renderGdMorning(dayIdx){
   const greet = ['Good morning!','Rise and shine! ☀️','Ready for today?','Let us do this!','Good morning! ☀️'][dayIdx % 5];
 
   gd.innerHTML = `<div class="gd-screen">
-    ${gdTopbar()}
+    ${gdTopbar('','',`<button class="gd-back-btn" onclick="gdBack(${dayIdx},${evtIdx})">‹ Back</button>`)}
     <div class="gd-card">
       <div class="gd-phase-bar" style="background:${pc}"></div>
       <div class="gd-phase-row">
@@ -1087,7 +1097,7 @@ function renderGdEvent(dayIdx, evtIdx){
   const btnLabel = isLast ? 'Done for now ✓' : 'Continue →';
 
   gd.innerHTML = `<div class="gd-screen">
-    ${gdTopbar()}
+    ${gdTopbar('','',`<button class="gd-back-btn" onclick="gdBack(${dayIdx},${evtIdx})">‹ Back</button>`)}
     <div class="gd-card">
       <div class="gd-phase-bar" style="background:${pc}"></div>
       <div class="gd-phase-row">
@@ -1159,7 +1169,7 @@ function gdGoodNight(dayIdx){
 }
 
 // ─── INIT ──────────────────────────────────────────────────────────
-showGuided();
+showOverview();
 </script>
 </body>
 </html>
