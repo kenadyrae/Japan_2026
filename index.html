@@ -1035,7 +1035,7 @@ function renderGdMorning(dayIdx){
   const greet = ['Good morning!','Rise and shine! ☀️','Ready for today?','Let us do this!','Good morning! ☀️'][dayIdx % 5];
 
   gd.innerHTML = `<div class="gd-screen">
-    ${gdTopbar('','',`<button class="gd-back-btn" onclick="gdBack(${dayIdx},${evtIdx})">‹ Back</button>`)}
+    ${gdTopbar()}
     <div class="gd-card">
       <div class="gd-phase-bar" style="background:${pc}"></div>
       <div class="gd-phase-row">
