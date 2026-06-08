@@ -166,6 +166,9 @@ h1 em{color:var(--kyoto);font-style:normal;}
 .ev-row.type-logistics .ev-dot{color:var(--t-logistics);}
 .ev-row.type-logistics .ev-body{background:#FFFBEB;border-color:#FDE68A;}
 .ev-row.type-logistics .ev-dur{background:#FEF3C7;color:#B45309;}
+.ev-row.type-free .ev-dot{color:#0EA5E9;}
+.ev-row.type-free .ev-body{background:#F0F9FF;border-color:#BAE6FD;}
+.ev-row.type-free .ev-dur{background:#E0F2FE;color:#0369A1;}
 
 /* ─── MOBILE ─── */
 @media (max-width:640px){
@@ -278,18 +281,18 @@ const PHASES = {tokyo:'tokyo',kyoto:'kyoto',hakone:'hakone',travel:'travel'};
 const days = [
 // ── Jun 8 ──────────────────────────────────────────────────────────
 { date:8, phase:'travel', label:'Pre-flight', dow:'Monday',
-  summary:'🚗 Westminster → LAX · ✈️ NH125 to Tokyo',
+  summary:'🚗 Family drop-off LAX · ✈️ NH125 to Tokyo',
   tags:[], cardNote:'Kids eat at home before leaving. 12hr flight to Tokyo.',
   events:[
     {t:'11:30 AM',dur:'30 min',type:'prep',title:'🍽 Lunch at home',
      loc:'13452 Sioux Rd, Westminster, CA',
      notes:'Full meal for everyone — do not rely on airport food. Pack the carry-ons early so you can eat without rushing.',
      prep:[]},
-    {t:'12:30 PM',dur:'45 min',type:'transit',title:'🚗 Uber to LAX',
+    {t:'1:30 PM',dur:'45 min',type:'transit',title:'🚗 Family drop-off to LAX',
      loc:'LAX Terminal B (ANA Check-In), Los Angeles',
-     notes:'Car seat requested. Drive is ~20 miles up the 405. Monday afternoon traffic can extend this — 12:30 PM departure is the safe call.',
-     prep:['Book Uber the night before — select car seat option','Confirm pickup time is 12:15–12:30 PM']},
-    {t:'1:30 PM',dur:'1.5 hr',type:'transit',title:'🛂 Check-in + Security',
+     notes:'Family driving to the airport. ~20 miles up the 405 — allow for Monday afternoon traffic.',
+     prep:['Confirm drop-off at Terminal B — ANA check-in']},
+    {t:'2:15 PM',dur:'45 min',type:'transit',title:'🛂 Check-in + Security',
      loc:'LAX Tom Bradley International Terminal',
      notes:'ANA counter is in Terminal B. Allow 30–45 min for security with two kids. International security at TBIT can be slow.',
      prep:['Passports out and accessible','Liquids in quart bag, top of bag','Kids may need to remove shoes']},
@@ -350,6 +353,10 @@ const days = [
     {t:'3:00 PM',dur:'1 hr',type:'activity',title:'🏬 Don Quijote (Donki)',
      loc:'Multiple locations near hotel',
      notes:'Organized chaos. Great for: cheap luggage/bags, random necessities, snacks in bulk, travel accessories, anything you forgot.',
+     prep:[]},
+    {t:'4:00 PM',dur:'2 hr',type:'free',title:'☀️ Family free time',
+     loc:'Kinshicho neighborhood, Tokyo',
+     notes:'No agenda. Wander, decompress after a full shopping day, or head to Solamachi for one more look around.',
      prep:[]}
   ]
 },
@@ -399,6 +406,10 @@ const days = [
     {t:'12:30 PM',dur:'1.5 hr',type:'nap',title:'🌳 Inokashira Park — nap + decompress 🛏',
      loc:'Inokashira Park, 1-18-31 Gotenyama, Musashino City, Tokyo (directly adjacent)',
      notes:'Large park with a central pond, small zoo, swan boat rentals, and plenty of shaded grass.',
+     prep:[]},
+    {t:'2:30 PM',dur:'2.5 hr',type:'free',title:'🧔 Michael — solo time',
+     loc:'Tokyo',
+     notes:'No agenda.',
      prep:[]},
     {t:'5:00 PM',dur:'1.5–2 hr',type:'food',title:'🍽 Tofuya Ukai dinner',
      loc:'4-4-13 Shiba Koen, Minato City, Tokyo (near Tokyo Tower)',
@@ -478,7 +489,11 @@ const days = [
     {t:'7:00 PM',dur:'—',type:'logistics',title:'🏨 Return to hotel + Takuhaibin',
      loc:'Tobu Hotel Levant Tokyo',
      notes:'Last night in Tokyo. Ask hotel to arrange takuhaibin (luggage forwarding) tonight — bags will arrive at Yasaka no Yado in Kyoto by Jun 16.',
-     prep:['Pack bags to be forwarded tonight','Keep one bag with Shinkansen essentials: documents, IC cards, change of clothes, snacks']}
+     prep:['Pack bags to be forwarded tonight','Keep one bag with Shinkansen essentials: documents, IC cards, change of clothes, snacks']},
+    {t:'9:00 PM',dur:'—',type:'free',title:'💑 Date night',
+     loc:'Tokyo',
+     notes:'Lila asleep, Laney home with the hotel number. No agenda — last night in Tokyo.',
+     prep:['Laney has the hotel room number and front desk is downstairs']}
   ]
 },
 
@@ -504,6 +519,10 @@ const days = [
      loc:'Kyoto Station, Shimogyo Ward, Kyoto',
      notes:'Check-in at Yasaka no Yado isn\'t until 3 PM. Options: store bags at Kyoto Station coin lockers, grab lunch, take a gentle explore near the station.',
      prep:[]},
+    {t:'12:30 PM',dur:'2.5 hr',type:'free',title:'☀️ Family free time — Kyoto arrival',
+     loc:'Kyoto Station area',
+     notes:'No agenda. Explore the station area, grab lunch, or start wandering toward the guesthouse neighborhood.',
+     prep:[]},
     {t:'3:00 PM',dur:'—',type:'activity',title:'🏯 Check in to Yasaka no Yado',
      loc:'Yasaka no Yado, Higashiyama Ward, Kyoto (confirm exact address with JE)',
      notes:'Entire traditional Japanese house — 2 floors, tatami bedroom, hinoki cypress bath, small garden. Check-in window: 3–6 PM. Forwarded bags from Tokyo arrive Jun 16–17.',
@@ -524,6 +543,10 @@ const days = [
      loc:'Yasaka no Yado, Higashiyama Ward, Kyoto',
      notes:'Short walk back.',
      prep:[]},
+    {t:'10:45 AM',dur:'1.75 hr',type:'free',title:'☀️ Family free time',
+     loc:'Yasaka no Yado + Higashiyama neighborhood',
+     notes:'No agenda. First morning at the guesthouse — settle in, sit in the garden, or explore the immediate neighborhood.',
+     prep:[]},
     {t:'12:30 PM',dur:'1 hr',type:'nap',title:'Guesthouse nap 🛏',
      loc:'Yasaka no Yado',
      notes:'Best nap location of the whole trip — your own traditional house. Everyone can rest.',
@@ -542,9 +565,8 @@ const days = [
      prep:['No photography of geiko/maiko without permission','Stay on the paths — some side alleys are private residential']},
     {t:'5:00 PM',dur:'1.5–2 hr',type:'food',title:'🍱 Yorozu Enraku — Obanzai dinner',
      loc:'570-143 Gionmachi Minamigawa, Higashiyama Ward, Kyoto 605-0074',
-     booked:true,
-     notes:'120-year-old Kyoto townhouse in a back alley of Gion. Obanzai course: 7 dishes including obanzai, sashimi, oden, tempura, fish or meat, rice, dessert. ¥5,000 per adult — children not counted in course order.',
-     prep:['⏳ Awaiting email confirmation — if no reply, ask Yasaka no Yado host to call on Jun 15','Phone: 075-533-1511','Course: [For Foreign Nationals Only] Obanzai Course (¥10,000 total for 2 adults)','Shoes off at entrance — tatami seating']}
+     notes:'120-year-old Kyoto townhouse in a back alley of Gion. Obanzai course: 7 dishes including obanzai, sashimi, oden, tempura, fish or meat, rice, dessert. ¥5,000 per adult — children not counted in course order. Only takes reservations by direct phone call — plan to walk in at 5 PM when they open.',
+     prep:['Arrive at 5 PM sharp when they open — best chance of getting a table walk-in','Phone if needed from Kyoto on Jun 15 evening: 075-533-1511 (open from 5 PM)','Shoes off at entrance — tatami seating','If full, plenty of good options in Gion — not a disaster']}
   ]
 },
 // ── Jun 17 ─────────────────────────────────────────────────────────
@@ -560,9 +582,9 @@ const days = [
      loc:'Fushimi Inari → Higashiyama (bus or train)',
      notes:'~30–45 min return journey.',
      prep:[]},
-    {t:'10:00 AM',dur:'2.5 hr',type:'prep',title:'☀️ Free morning at guesthouse',
-     loc:'Yasaka no Yado',
-     notes:'Slow morning. Early start deserves a rest. Good opportunity for solo blocks before the afternoon ceremony.',
+    {t:'9:00 AM',dur:'4 hr',type:'free',title:'🌸 Kenady — solo morning',
+     loc:'Kyoto',
+     notes:'No agenda. Four hours of unstructured Kyoto morning. Wander Higashiyama, find a quiet café, or just be still.',
      prep:[]},
     {t:'12:30 PM',dur:'1 hr',type:'nap',title:'Nap 🛏',
      loc:'Yasaka no Yado',
@@ -627,9 +649,13 @@ const days = [
      loc:'Yasaka no Yado',
      notes:'Best day for a proper long rest — no fixed afternoon plans.',
      prep:[]},
-    {t:'2:00 PM',dur:'—',type:'prep',title:'☀️ Free afternoon',
-     loc:'Guesthouse or nearby',
-     notes:'No agenda. Options: explore the neighborhood, revisit a shop, sit in the garden, do nothing. Second-to-last Kyoto evening — soak it in.',
+    {t:'2:00 PM',dur:'—',type:'prep',title:'🧔 Michael — solo afternoon',
+     loc:'Kyoto',
+     notes:'No agenda.',
+     prep:[]},
+    {t:'6:00 PM',dur:'3 hr',type:'free',title:'☀️ Family free time',
+     loc:'Higashiyama + Gion area, Kyoto',
+     notes:'No agenda. Evening in Gion — wander the stone lanes, find dinner spontaneously.',
      prep:[]}
   ]
 },
@@ -666,7 +692,11 @@ const days = [
     {t:'2:00 PM',dur:'45 min',type:'logistics',title:'📦 Japan Post — ship souvenirs home',
      loc:'Central Kyoto Post Office (confirm nearest branch on the day)',
      notes:'Buy a cardboard box at the counter. Pack it there. Ship via EMS (fast, tracked, arrives in US ~5 days) or SAL (cheaper, slower). Bring passport. Allow 45 min.',
-     prep:['EMS cost: approximately ¥5,000–8,000 for a medium box to the US','Bring passport for customs form','Staff are accustomed to tourists shipping home — helpful and patient']}
+     prep:['EMS cost: approximately ¥5,000–8,000 for a medium box to the US','Bring passport for customs form','Staff are accustomed to tourists shipping home — helpful and patient']},
+    {t:'5:00 PM',dur:'4 hr',type:'free',title:'🌸 Kenady — solo evening',
+     loc:'Kyoto',
+     notes:'No agenda. Tousuiro Gion is a suggestion for a vegan kaiseki dinner nearby — or go wherever feels right.',
+     prep:['Tousuiro Gion suggestion: vegan kaiseki in a 130-year-old merchant house · info@tousuiro.com']}
   ]
 },
 // ── Jun 21 ─────────────────────────────────────────────────────────
@@ -703,6 +733,10 @@ const days = [
   summary:'🌿 Hakone Ropeway · 🌿 Lake Ashi · ⛩️ Open Air Museum · ♨️ Evening onsen',
   tags:[], cardNote:'Hakone Free Pass covers all transport. Ryokan dinner included — no evening rush.',
   events:[
+    {t:'7:00 AM',dur:'2 hr',type:'free',title:'🌸 Kenady — solo morning',
+     loc:'Hakone',
+     notes:'No agenda. Early Hakone — ryokan garden, riverside walk, or quiet coffee before the day begins.',
+     prep:[]},
     {t:'9:00 AM',dur:'1 hr',type:'activity',title:'🚡 Hakone Ropeway',
      loc:'Sounzan Station → Owakudani → Togendai (Hakone Free Pass)',
      notes:'Aerial gondola over volcanic Owakudani (active sulfur vents). On a clear day, Mt. Fuji views are stunning. Note: the sulfur smell at Owakudani is strong — worth knowing in advance. There are snacks and small stalls at the Owakudani stop.',
@@ -1169,7 +1203,7 @@ function gdGoodNight(dayIdx){
 }
 
 // ─── INIT ──────────────────────────────────────────────────────────
-showOverview();
+showGuided();
 </script>
 </body>
 </html>
