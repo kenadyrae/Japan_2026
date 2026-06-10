@@ -379,16 +379,16 @@ const days = [
      loc:'Ginza Line: Asakusa → Toranomon Hills + short walk',
      notes:'Use IC cards. Roughly 25 min transit + 10 min walk to TeamLab entrance at Garden Plaza B.',
      prep:[]},
-    {t:'11:00 AM',dur:'2–3 hr',type:'activity',title:'🌊 TeamLab Borderless',
+    {t:'11:00 AM',dur:'2 hr',type:'activity',title:'🌊 TeamLab Borderless',
      loc:'Azabudai Hills Garden Plaza B, 1-2-4 Azabudai, Minato City, Tokyo',
-     notes:'Confirmed entry: 11:00–11:30 AM slot. Immersive digital art — 60+ interconnected rooms with no maps. Lila may nap inside (still adjusting to JST this week — flexibility is fine). Allow 2–3 hours.',
+     notes:'Confirmed entry: 11:00–11:30 AM slot. Immersive digital art — 60+ interconnected rooms with no maps. Allow around 2 hours.',
      booked:true,
      prep:['No large bags — use coin lockers at entrance (¥100 refundable)','Dark or neutral colors photograph better inside the light installations','Wear comfortable shoes — lots of walking on uneven/padded surfaces']},
-    {t:'1:45 PM',dur:'40 min',type:'transit',title:'🚇 Return to hotel',
+    {t:'1:00 PM',dur:'40 min',type:'transit',title:'🚇 Return to hotel',
      loc:'Azabudai Hills → Kinshicho (Toranomon Hills → transfer, ~35 min)',
      notes:'Head back to the hotel for a proper rest before the evening.',
      prep:[]},
-    {t:'2:30 PM',dur:'1 hr',type:'nap',title:'Midday rest 🛏',
+    {t:'1:45 PM',dur:'1 hr',type:'nap',title:'Midday rest 🛏',
      loc:'Tobu Hotel Levant Tokyo',
      notes:'Rest before the evening. Target up by 4:00 PM.',
      prep:[]},
@@ -466,6 +466,10 @@ const days = [
     {t:'4:30 PM',dur:'—',type:'transit',title:'🚇 Return to hotel',
      loc:'Kiba → Kinshicho (Tozai Line, 2 stops)',
      notes:'Home by 5:00 PM.',
+     prep:[]},
+    {t:'5:30 PM',dur:'—',type:'food',title:'🥡 Dinner — Kinshicho area',
+     loc:'Near Tobu Hotel Levant Tokyo, Kinshicho',
+     notes:'No reservation needed. Walk the neighborhood and find somewhere that looks good. Plenty of small local restaurants near the hotel.',
      prep:[]}
   ]
 },
@@ -513,7 +517,7 @@ const days = [
 
 // ── Jun 15 ─────────────────────────────────────────────────────────
 { date:15, phase:'travel', label:'Tokyo → Kyoto', dow:'Monday',
-  summary:'🚃 Nozomi 251 · Tokyo → Kyoto · 🧳 Yasaka no Yado',
+  summary:'🚃 Nozomi 251 · Tokyo → Kyoto · 🧳 Yasaka no Yado · ☀️ Family free time',
   tags:[], cardNote:'Shinkansen 10:00 AM. Check-in 3–6 PM. Right side of train for Mt. Fuji.',
   events:[
     {t:'8:30 AM',dur:'30 min',type:'prep',title:'🏨 Check out of Tobu Hotel Levant',
@@ -541,12 +545,16 @@ const days = [
      loc:'Yasaka no Yado, Higashiyama Ward, Kyoto (confirm exact address with JE)',
      notes:'Entire traditional Japanese house — 2 floors, tatami bedroom, hinoki cypress bath, small garden. Check-in window: 3–6 PM. Forwarded bags from Tokyo arrive Jun 16–17.',
      booked:true,
-     prep:['Check-in window is 3–6 PM — aim for 3–4 PM to settle before evening','Remove shoes at entrance (genkan) — Japanese custom in a traditional house']}
+     prep:['Check-in window is 3–6 PM — aim for 3–4 PM to settle before evening','Remove shoes at entrance (genkan) — Japanese custom in a traditional house']},
+    {t:'5:00 PM',dur:'—',type:'food',title:'🥡 Dinner — Gion area',
+     loc:'Higashiyama + Gion area, Kyoto',
+     notes:'First Kyoto dinner — walk from the guesthouse into Gion and find somewhere that looks good. No reservation needed.',
+     prep:[]}
   ]
 },
 // ── Jun 16 ─────────────────────────────────────────────────────────
 { date:16, phase:'kyoto', label:'Kyoto Day 1', dow:'Tuesday',
-  summary:'🌿 Philosopher\'s Path · 🛒 Nishiki Market · ⛩️ Gion stroll · 🥡 Enraku dinner',
+  summary:'🌿 Philosopher\'s Path · 🛒 Nishiki · ⛩️ Gion · 🥡 Enraku · ☀️ Family free',
   tags:[], cardNote:'First full Kyoto day. Philosopher\'s Path walkable from guesthouse. Enraku dinner 5 PM — awaiting confirmation.',
   events:[
     {t:'8:00 AM',dur:'2 hr',type:'activity',title:'🌸 Philosopher\'s Path + name stamps (hanko)',
@@ -585,7 +593,7 @@ const days = [
 },
 // ── Jun 17 ─────────────────────────────────────────────────────────
 { date:17, phase:'kyoto', label:'Tea Ceremony Day', dow:'Wednesday',
-  summary:'⛩️ Fushimi Inari · ⛩️ Private Tea Ceremony',
+  summary:'⛩️ Fushimi Inari · ⛩️ Tea Ceremony · 🌸 Kenady solo',
   tags:[], cardNote:'Tea ceremony time change requested from Fritz. Currently 1:00 PM — may shift to 2:30 PM.',
   events:[
     {t:'7:00 AM',dur:'1.5 hr',type:'activity',title:'⛩ Fushimi Inari Taisha',
@@ -608,7 +616,11 @@ const days = [
      loc:'Confirm with Japan Experience (Kyoto)',
      booked:true,
      notes:'Booked via Japan Experience. Private session for the whole family. Traditional matcha preparation and service in a tatami room. Slower-paced and genuinely meditative.',
-     prep:['Wear or bring socks (tatami rooms require socks or bare feet, no shoes)','Avoid wearing strong perfume','Bow slightly when receiving the tea bowl — hold with both hands']}
+     prep:['Wear or bring socks (tatami rooms require socks or bare feet, no shoes)','Avoid wearing strong perfume','Bow slightly when receiving the tea bowl — hold with both hands']},
+    {t:'5:00 PM',dur:'—',type:'food',title:'🥡 Dinner — Gion area',
+     loc:'Higashiyama + Gion area, Kyoto',
+     notes:'No reservation needed. Walk from the guesthouse into the neighborhood.',
+     prep:[]}
   ]
 },
 // ── Jun 18 ─────────────────────────────────────────────────────────
@@ -644,7 +656,7 @@ const days = [
 },
 // ── Jun 19 ─────────────────────────────────────────────────────────
 { date:19, phase:'kyoto', label:'Higashiyama Day', dow:'Friday',
-  summary:'⛩️ Kiyomizudera · 🛒 Ninenzaka + Sannenzaka · ☀️ Slow afternoon',
+  summary:'⛩️ Kiyomizudera · 🛒 Ninenzaka · 🧔 Michael solo · ☀️ Family free time',
   tags:[], cardNote:'Everything walkable from guesthouse. Slowest day of the week. No agenda after 2 PM.',
   events:[
     {t:'9:00 AM',dur:'1 hr',type:'activity',title:'⛩ Kiyomizudera Temple',
@@ -748,7 +760,7 @@ const days = [
 },
 // ── Jun 22 ─────────────────────────────────────────────────────────
 { date:22, phase:'hakone', label:'Hakone Day ♨️', dow:'Monday',
-  summary:'🌿 Hakone Ropeway · 🌿 Lake Ashi · ⛩️ Open Air Museum · ♨️ Evening onsen',
+  summary:'🌸 Kenady solo · 🚡 Ropeway · 🌿 Lake Ashi · ⛩️ Open Air Museum · ♨️ Onsen',
   tags:[], cardNote:'Hakone Free Pass covers all transport. Ryokan dinner included — no evening rush.',
   events:[
     {t:'7:00 AM',dur:'2 hr',type:'free',title:'🌸 Kenady — solo morning',
