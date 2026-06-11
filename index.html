@@ -694,7 +694,7 @@ const days = [
 },
 // ── Jun 18 ─────────────────────────────────────────────────────────
 { date:18, phase:'kyoto', label:'Nara Day Trip 🦌', dow:'Thursday',
-  summary:'🌿 Nara Park · ⛩️ Tōdai-ji · ⛩️ Kasuga Taisha',
+  summary:'🌿 Nara Park · ⛩️ Tōdai-ji · ⛩️ Kasuga Taisha · 👨 Michael free',
   tags:[], cardNote:'June = fawning season. Deer approach freely for senbei crackers. 45 min from Kyoto.',
   events:[
     {t:'7:00 AM',dur:'30 min',type:'food',title:'🍳 Breakfast',
@@ -728,6 +728,10 @@ const days = [
     {t:'5:30 PM',dur:'—',type:'food',title:'🥡 Dinner — Gion area',
      loc:'Higashiyama + Gion area, Kyoto',
      notes:'Later dinner today given Nara return. Walk from guesthouse into Gion.',
+     prep:[]},
+    {t:'7:00 PM',dur:'—',type:'free',title:'👨 Michael — free time',
+     loc:'Kyoto',
+     notes:'No agenda — evening free after dinner.',
      prep:[]}
   ]
 },
@@ -1008,7 +1012,7 @@ function renderOverview() {
     let h='';
     for(let i=0;i<before;i++) h+='<div class="day-card empty"></div>';
     arr.forEach((d,idx)=>{
-      const globalIdx = arr===week1?idx:(arr===week2?idx+7:idx+14);
+      const globalIdx = arr===week1?idx:(arr===week2?idx+7:idx+13);
       h+=`<div class="day-card ${d.phase}" data-idx="${globalIdx}">
         ${d.split?'<div class="split-dot"></div>':''}
         <div class="day-num">${d.date}</div>
