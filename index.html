@@ -205,68 +205,102 @@ h1 em{color:var(--kyoto);font-style:normal;}
 }
 
 /* ─── GUIDED MODE ─── */
-#gd{background:var(--bg);min-height:100vh;padding:0;}
+#gd{background:#111;min-height:100vh;padding:0;}
 #gd.active{display:flex;flex-direction:column;}
 .gd-screen{flex:1;display:flex;flex-direction:column;max-width:520px;margin:0 auto;width:100%;min-height:100vh;}
-.gd-topbar{display:flex;justify-content:space-between;align-items:center;padding:16px 20px 8px;}
-.gd-topbar-logo{font-size:10px;font-weight:700;color:var(--ink3);letter-spacing:.1em;text-transform:uppercase;}
-.gd-ov-link{font-size:11px;color:var(--ink3);background:none;border:1px solid var(--border);border-radius:20px;cursor:pointer;padding:5px 12px;font-family:'DM Sans',sans-serif;transition:all .15s;}.gd-back-btn{font-size:11px;color:var(--ink3);background:none;border:1px solid var(--border);border-radius:20px;cursor:pointer;padding:5px 12px;font-family:'DM Sans',sans-serif;transition:all .15s;}.gd-back-btn:hover{background:var(--ink);color:white;border-color:var(--ink);}
-.gd-ov-link:hover{background:var(--ink);color:white;border-color:var(--ink);}
-.gd-card{flex:1;padding:20px 24px 32px;display:flex;flex-direction:column;}
-.gd-phase-bar{height:4px;border-radius:2px;margin-bottom:20px;flex-shrink:0;}
-.gd-phase-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
-.gd-phase-label{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;}
-.gd-progress{font-size:10px;color:var(--ink3);background:var(--border);padding:3px 9px;border-radius:20px;}
+
+/* Hero photo */
+.gd-hero{width:100%;height:250px;position:relative;flex-shrink:0;overflow:hidden;}
+.gd-hero-watermark{position:absolute;right:-10px;bottom:-10px;font-size:160px;opacity:.18;line-height:1;pointer-events:none;user-select:none;}
+.gd-hero img{width:100%;height:100%;object-fit:cover;display:block;}
+.gd-hero-nav{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:18px 20px;}
+.gd-hero-title{position:absolute;bottom:0;left:0;right:0;padding:0 24px 20px;}
+.gd-chip{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.18);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.25);border-radius:100px;padding:3px 10px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:8px;}
+.gd-hero-eyebrow{font-size:13px;color:rgba(255,255,255,.65);margin-bottom:2px;}
+.gd-hero-date{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:5px;}
+.gd-hero-heading{font-family:'Noto Serif JP',serif;font-size:28px;font-weight:700;color:white;line-height:1.2;text-shadow:0 2px 12px rgba(0,0,0,.5);}
+
+/* Nav buttons */
+.gd-nav-logo{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6);}
+.gd-nav-btn{font-size:11px;font-weight:500;color:rgba(255,255,255,.8);background:rgba(0,0,0,.35);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 12px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.gd-back-btn{font-size:11px;font-weight:500;color:rgba(255,255,255,.8);background:rgba(0,0,0,.35);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 12px;cursor:pointer;font-family:'DM Sans',sans-serif;}
+
+/* Card body */
+.gd-body{flex:1;display:flex;flex-direction:column;padding:20px 24px 32px;}
+.gd-progress-row{display:flex;justify-content:flex-end;margin-bottom:16px;}
+.gd-progress{font-size:10px;color:rgba(255,255,255,.4);background:rgba(0,0,0,.25);padding:3px 10px;border-radius:20px;}
 .gd-spacer{flex:1;min-height:16px;}
-/* Welcome */
-.gd-welcome-hero{text-align:center;padding:16px 0 24px;}
-.gd-welcome-icon{font-size:52px;margin-bottom:12px;}
-.gd-welcome-title{font-family:'Noto Serif JP',serif;font-size:30px;font-weight:700;color:var(--ink);margin-bottom:6px;}
-.gd-welcome-sub{font-size:15px;color:var(--ink3);}
-.gd-phases-row{display:flex;justify-content:center;gap:8px;margin:20px 0 28px;flex-wrap:wrap;}
-.gd-phase-chip{padding:6px 14px;border-radius:100px;font-size:11px;font-weight:500;}
-/* Morning */
-.gd-morning-eyebrow{font-size:14px;color:var(--ink3);margin-bottom:6px;}
-.gd-morning-date{font-size:14px;color:var(--ink3);margin-bottom:4px;}
-.gd-morning-title{font-family:'Noto Serif JP',serif;font-size:28px;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:16px;}
-.gd-morning-summary{font-size:15px;color:var(--ink2);line-height:1.8;padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:8px;}
-/* Event */
-.gd-ev-icon{font-size:38px;margin-bottom:10px;line-height:1;}
-.gd-ev-title{font-family:'Noto Serif JP',serif;font-size:22px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:12px;}
-.gd-ev-badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
-.gd-badge{padding:4px 10px;border-radius:20px;font-size:11px;font-weight:500;}
-.gd-badge-time{background:#F3F4F6;color:#374151;}
-.gd-badge-dur{background:var(--travel-bg);color:var(--travel);}
-.gd-badge-booked{background:#F0FDF4;color:#15803D;font-weight:600;}
-.gd-ev-loc{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--card);border:1px solid var(--border);border-radius:10px;margin-bottom:14px;}
-.gd-ev-loc-text{font-size:13px;color:var(--ink2);flex:1;line-height:1.4;}
-.gd-maps-link{flex-shrink:0;padding:5px 10px;background:var(--book-bg);color:var(--book);border:1px solid #BFDBFE;border-radius:20px;font-size:10px;font-weight:600;text-decoration:none;white-space:nowrap;}
-.gd-ev-notes{font-size:15px;color:var(--ink2);line-height:1.7;margin-bottom:14px;}
-.gd-ev-prep{background:#FFFBEB;border:1px solid #FDE68A;border-radius:10px;padding:12px 14px;margin-bottom:14px;}
-.gd-ev-prep-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:6px;}
-.gd-ev-prep-item{font-size:14px;color:#78350F;padding:4px 0 4px 16px;position:relative;line-height:1.5;}
-.gd-ev-prep-item::before{content:'→';position:absolute;left:0;opacity:.6;}
-/* Night */
-.gd-night-screen{background:#0F172A;min-height:100vh;display:flex;flex-direction:column;}
-.gd-night-topbar{display:flex;justify-content:flex-end;padding:16px 20px 0;}
-.gd-night-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:32px 24px;}
-.gd-night-icon{font-size:56px;margin-bottom:16px;}
+
+/* Morning agenda */
+.gd-agenda{background:rgba(0,0,0,.2);border-radius:14px;overflow:hidden;margin-bottom:auto;}
+.gd-agenda-item{display:flex;align-items:center;gap:12px;padding:11px 16px;border-bottom:1px solid rgba(255,255,255,.07);font-size:14px;color:rgba(255,255,255,.82);}
+.gd-agenda-item:last-child{border-bottom:none;}
+.gd-agenda-icon{font-size:18px;width:26px;text-align:center;flex-shrink:0;}
+
+/* Event badges */
+.gd-badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+.gd-badge{padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;}
+.gd-badge-time{background:rgba(255,255,255,.12);color:rgba(255,255,255,.85);}
+.gd-badge-dur{background:rgba(0,0,0,.25);color:rgba(255,255,255,.6);}
+.gd-badge-booked{background:rgba(52,211,153,.15);color:#6EE7B7;border:1px solid rgba(110,231,179,.25);}
+
+/* Event location */
+.gd-loc{display:flex;align-items:center;gap:10px;background:rgba(0,0,0,.22);border-radius:12px;padding:11px 14px;margin-bottom:14px;}
+.gd-loc-text{font-size:12px;color:rgba(255,255,255,.65);flex:1;line-height:1.45;}
+.gd-maps-btn{flex-shrink:0;padding:5px 10px;background:rgba(255,255,255,.12);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.2);border-radius:20px;font-size:10px;font-weight:600;text-decoration:none;white-space:nowrap;}
+
+/* Event notes + prep */
+.gd-notes{font-size:14px;color:rgba(255,255,255,.72);line-height:1.65;margin-bottom:14px;}
+.gd-prep{background:rgba(0,0,0,.2);border-radius:12px;padding:14px 16px;margin-bottom:14px;}
+.gd-prep-lbl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.35);margin-bottom:8px;}
+.gd-prep-item{font-size:13px;color:rgba(255,255,255,.7);padding:3px 0 3px 16px;position:relative;line-height:1.45;}
+.gd-prep-item::before{content:'→';position:absolute;left:0;color:rgba(255,255,255,.3);}
+
+/* Night screen */
+.gd-night-screen{background:linear-gradient(to bottom,#0F172A,#1E293B);min-height:100vh;display:flex;flex-direction:column;}
+.gd-night-topbar{display:flex;justify-content:flex-end;padding:18px 20px 0;}
+.gd-night-body{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;text-align:center;}
+.gd-night-icon{font-size:72px;margin-bottom:16px;filter:drop-shadow(0 0 32px rgba(148,163,184,.2));}
 .gd-night-heading{font-family:'Noto Serif JP',serif;font-size:26px;font-weight:700;color:white;margin-bottom:10px;}
-.gd-night-sub{font-size:15px;color:#94A3B8;line-height:1.7;margin-bottom:40px;}
+.gd-night-sub{font-size:14px;color:#94A3B8;line-height:1.65;margin-bottom:28px;}
+.gd-night-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 20px;width:100%;margin-bottom:28px;}
+.gd-night-card-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.3);margin-bottom:6px;}
+.gd-night-card-val{font-size:16px;font-weight:600;color:white;}
+.gd-night-card-sub{font-size:12px;color:#64748B;margin-top:3px;}
+
+/* Welcome screen */
+.gd-welcome-screen{min-height:100vh;background:#0F172A;display:flex;flex-direction:column;}
+.gd-welcome-hero{width:100%;height:280px;position:relative;overflow:hidden;flex-shrink:0;}
+.gd-welcome-hero img{width:100%;height:100%;object-fit:cover;}
+.gd-welcome-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.4) 0%,rgba(15,23,42,.95) 100%);}
+.gd-welcome-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:0 24px 28px;text-align:center;}
+.gd-welcome-icon{font-size:48px;margin-bottom:10px;}
+.gd-welcome-title{font-family:'Noto Serif JP',serif;font-size:34px;font-weight:700;color:white;margin-bottom:6px;}
+.gd-welcome-sub{font-size:14px;color:rgba(255,255,255,.5);}
+.gd-welcome-body{flex:1;display:flex;flex-direction:column;padding:24px 24px 36px;}
+.gd-city-pills{display:flex;justify-content:center;gap:8px;margin-bottom:32px;flex-wrap:wrap;}
+.gd-city-pill{padding:7px 16px;border-radius:100px;font-size:12px;font-weight:500;border:1px solid rgba(255,255,255,.15);}
+
+/* Split path selector */
+.gd-split-screen{min-height:100vh;display:flex;flex-direction:column;}
+.gd-path-cards{display:flex;flex-direction:column;gap:12px;margin-top:8px;}
+.gd-path-card{display:flex;align-items:center;gap:16px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px;cursor:pointer;transition:all .15s;font-family:'DM Sans',sans-serif;}
+.gd-path-card:hover{background:rgba(255,255,255,.12);transform:translateY(-1px);}
+.gd-path-icon{font-size:36px;flex-shrink:0;}
+.gd-path-name{font-size:17px;font-weight:600;color:white;margin-bottom:3px;}
+.gd-path-desc{font-size:12px;color:rgba(255,255,255,.5);}
+
 /* Buttons */
-.gd-btn{width:100%;padding:15px;border-radius:12px;border:none;font-size:15px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .15s;margin-bottom:10px;}
-.gd-btn-ghost{background:var(--card);color:var(--ink2);border:1px solid var(--border);font-size:13px;padding:12px;}
-.gd-btn-night-ghost{background:rgba(255,255,255,.07);color:#94A3B8;border:1px solid rgba(255,255,255,.1);font-size:13px;padding:12px;}
-.gd-btn-night-main{background:white;color:#0F172A;font-size:15px;padding:15px;}
-.gd-btn.tokyo{background:var(--tokyo);color:white;}
-.gd-btn.kyoto{background:var(--kyoto);color:white;}
-.gd-btn.hakone{background:var(--hakone);color:white;}
-.gd-btn.travel{background:var(--travel);color:white;}
-.gd-btn.welcome{background:var(--kyoto);color:white;}
-/* Guided mode button in overview */
-.gd-launch-btn{display:flex;align-items:center;gap:6px;padding:8px 16px;background:#C84B78;color:white;border:none;border-radius:8px;font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:opacity .15s;white-space:nowrap;align-self:flex-end;margin-left:auto;}
+.gd-btn{width:100%;padding:16px;border-radius:14px;border:none;font-size:16px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;letter-spacing:.01em;margin-bottom:10px;}
+.gd-btn-white{background:white;color:#1E293B;}
+.gd-btn-ghost{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.65);font-size:14px;padding:13px;}
+.gd-btn-night{background:rgba(255,255,255,.9);color:#0F172A;}
+
+/* Launch btn in overview */
+.gd-launch-btn{display:flex;align-items:center;gap:6px;padding:8px 16px;background:#C84B78;color:white;border:none;border-radius:8px;font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:opacity .15s;white-space:nowrap;}
 .gd-launch-btn:hover{opacity:.88;}
-@media(max-width:640px){.gd-ev-title{font-size:20px;}.gd-morning-title{font-size:24px;}.gd-welcome-title{font-size:26px;}}
+@media(max-width:640px){.gd-hero-heading{font-size:24px;}.gd-notes{font-size:13px;}}
+
 </style>
 </head>
 <body>
@@ -377,7 +411,7 @@ const days = [
 
 // ── Jun 11 ─────────────────────────────────────────────────────────
 { date:11, phase:'tokyo', label:'TeamLab Day', dow:'Thursday',
-  summary:'⛩️ Senso-ji + Asakusa · ⛩️ TeamLab Borderless · 🥡 Monjayaki dinner',
+  summary:'⛩️ Senso-ji + Asakusa · ⛩️ TeamLab Borderless · 🥞 Monjayaki',
   tags:[], cardNote:'Timed entry confirmed 11:00–11:30 AM. Senso-ji at 7:30 AM for zero crowds.',
   events:[
     {t:'7:00 AM',dur:'30 min',type:'food',title:'🍳 Hotel breakfast',
@@ -462,7 +496,7 @@ const days = [
 },
 
 // ── Jun 13 ─────────────────────────────────────────────────────────
-{ date:13, phase:'tokyo', label:'Split Day 🐾', dow:'Saturday',
+{ date:13, phase:'tokyo', label:'Split Day 🐾', dow:'Saturday', splitDay:true,
   summary:'🐾 Capybara · 🌸 Sakura Mochi · 🍣 Michael + Laney date · ⛩️ Kimono · 💑 Date night',
   tags:[], split:true,
   cardNote:'Capybara split 11 AM · Nap 12:30 PM · 👘 Kimono Workshop 3:00 PM · Ref FYY522945',
@@ -472,24 +506,29 @@ const days = [
      notes:'Included in stay. Opens 6:30 AM, closes 9:30 AM.',
      prep:[]},
     {t:'11:00 AM',dur:'30 min',type:'activity',title:'🐾 Capybara Café — Kenady + Laney',
+     path:'kenady-laney',
      loc:'Near Hikifune Station, Sumida City, Tokyo (5 min from hotel)',
      notes:'SPLIT: 2 people only. Booked via Japan Experience. Min age 6+. 30-min session, one drink included. Pay any extras on the spot. Arrive 10 min early.',
      booked:true,
      prep:['Confirm it\'s the Hikifune location with JE (not Asakusa)','Bring cash for any extras']},
-    {t:'11:00 AM',dur:'30–45 min',type:'activity',title:'🌸 Sakura Mochi — Michael + Lila',
-     loc:'1-6-22 Mukojima, Sumida City, Tokyo (10 min walk from hotel)',
-     notes:'SPLIT: Birthplace of sakura mochi — pink rice cakes wrapped in a pickled cherry leaf. Walk along the Sumida River. Open Wed–Mon. No reservation needed.',
-     prep:['Jun 13 is Saturday ✓','Cash only, under ¥1,000']},
+    {t:'11:00 AM',dur:'30–45 min',type:'activity',title:'🌸 Michael + Lila — morning adventure',
+     path:'michael-lila',
+     loc:'Asakusa / Ueno area, Tokyo',
+     notes:'Michael chooses the activity. ⚠️ Be back at Hikifune (Capybara Café area) by 11:30 AM to trade kids — Michael takes Laney, Kenady takes Lila home.',
+     prep:['Option A: Kappabashi-dori (Kitchen Street) — 10 min walk from Asakusa. Street of restaurant supply shops with plastic food displays in every window. Toddler gold. 1-2 hrs, very easy.','Option B: Ueno Zoo — 20 min from Hikifune, opens 9:30 AM. Pandas, animals Lila will love. Leave by 11:00 AM.','No obligation — go your own way if something else catches your eye','Back at Hikifune by 11:30 AM to swap kids']},
     {t:'11:30 AM',dur:'—',type:'logistics',title:'👨‍👩‍👧‍👧 Kenady + Lila return to hotel',
+     path:'kenady-laney',
      loc:'Hotel or Hikifune area',
      notes:'Short walk or one stop back to the hotel.',
      prep:[]},
     {t:'12:00 PM',dur:'1.5 hr',type:'food',title:'🍣 Michael + Laney date — Ginza Iwa',
+     path:'michael-lila',
      loc:'8-4-4 Ginza, Miura Bldg. 1F, Chuo-ku, Tokyo 104-0061',
      booked:true,
      notes:'One Michelin star. 6-seat counter. Seasonal sushi — 13 pieces + 1 roll + miso soup. Staff are English-friendly. Michael + Laney head straight to Kiba from Ginza after lunch.',
      prep:['✅ Confirmed via Tablecheck · ¥16,500/person · ¥33,000 total (refundable deposit)','Phone: 03-3572-0955','Ginza Station → Exit B9, 5 min walk','After lunch: Ginza → Kayabacho (Hibiya Line) → Kiba (Tozai Line) ~25 min — arrive by 2:30 PM']},
     {t:'12:30 PM',dur:'1 hr',type:'nap',title:'Hotel nap 🛏 (Kenady + Lila)',
+     path:'kenady-laney',
      loc:'Tobu Hotel Levant Tokyo',
      notes:'Kenady + Lila return to hotel after Sakura Mochi. Michael + Laney are at Ginza Iwa.',
      prep:[]},
@@ -694,7 +733,7 @@ const days = [
 },
 // ── Jun 18 ─────────────────────────────────────────────────────────
 { date:18, phase:'kyoto', label:'Nara Day Trip 🦌', dow:'Thursday',
-  summary:'🌿 Nara Park · ⛩️ Tōdai-ji · ⛩️ Kasuga Taisha · 👨 Michael free',
+  summary:'🌿 Nara Park · ⛩️ Tōdai-ji · ⛩️ Kasuga Taisha',
   tags:[], cardNote:'June = fawning season. Deer approach freely for senbei crackers. 45 min from Kyoto.',
   events:[
     {t:'7:00 AM',dur:'30 min',type:'food',title:'🍳 Breakfast',
@@ -728,10 +767,6 @@ const days = [
     {t:'5:30 PM',dur:'—',type:'food',title:'🥡 Dinner — Gion area',
      loc:'Higashiyama + Gion area, Kyoto',
      notes:'Later dinner today given Nara return. Walk from guesthouse into Gion.',
-     prep:[]},
-    {t:'7:00 PM',dur:'—',type:'free',title:'👨 Michael — free time',
-     loc:'Kyoto',
-     notes:'No agenda — evening free after dinner.',
      prep:[]}
   ]
 },
@@ -1146,216 +1181,368 @@ function gdLoad(){try{const s=localStorage.getItem(GD_KEY);return s?JSON.parse(s
 function gdSave(s){try{localStorage.setItem(GD_KEY,JSON.stringify(s));}catch(e){}}
 function gdClear(){try{localStorage.removeItem(GD_KEY);}catch(e){}}
 
-const gdAccom = {tokyo:'Tobu Hotel Levant Tokyo',kyoto:'Yasaka no Yado',hakone:'Hakone Airu ♨️',travel:null};
 
+// ── PHOTO SYSTEM (Picsum – reliable, unique per card) ─────────────
+function gdPhoto(keywords){ return ''; } // no longer used
+
+
+function gdGetEventEmoji(ev){
+  const t = (ev.title+' '+(ev.loc||'')).toLowerCase();
+  if(t.includes('senso-ji')||t.includes('asakusa')) return '⛩';
+  if(t.includes('teamlab')) return '🌊';
+  if(t.includes('ghibli')) return '🎬';
+  if(t.includes('akihabara')) return '🎮';
+  if(t.includes('yoyogi')||t.includes('meiji')) return '🌿';
+  if(t.includes('fushimi')||t.includes('inari')) return '⛩️';
+  if(t.includes('bamboo')||t.includes('arashiyama')) return '🎋';
+  if(t.includes('kiyomizu')) return '⛩️';
+  if(t.includes('philosopher')) return '🌸';
+  if(t.includes('nishiki')) return '🛒';
+  if(t.includes('gion')&&!t.includes('dinner')) return '🏮';
+  if(t.includes('tenryu')) return '⛩️';
+  if(t.includes('nara')) return '🦌';
+  if(t.includes('todai-ji')||t.includes('todaiji')) return '🏛';
+  if(t.includes('monkey')) return '🐒';
+  if(t.includes('ropeway')) return '🚡';
+  if(t.includes('lake ashi')) return '⛵';
+  if(t.includes('open air museum')) return '🎨';
+  if(t.includes('onsen')||t.includes('rotenburo')) return '♨️';
+  if(t.includes('ryokan')||t.includes('kansuiro')||t.includes('airu')) return '🏯';
+  if(t.includes('kimono')) return '👘';
+  if(t.includes('capybara')) return '🐾';
+  if(t.includes('tea ceremony')) return '🍵';
+  if(t.includes('mochi')) return '🌸';
+  if(t.includes('kappabashi')) return '🍽';
+  if(t.includes('ueno zoo')) return '🐼';
+  if(t.includes('ginza iwa')||t.includes('omakase')||t.includes('sushi')) return '🍣';
+  if(t.includes('monjayaki')) return '🥞';
+  if(t.includes('chanko')) return '♨️';
+  if(t.includes('shigetsu')||t.includes('shojin')) return '🌿';
+  if(t.includes('enraku')||t.includes('obanzai')) return '🍱';
+  if(t.includes('breakfast')&&(t.includes('ryokan')||t.includes('hakone'))) return '🍚';
+  if(t.includes('breakfast')) return '🍳';
+  if(t.includes('lunch')) return '🥡';
+  if(t.includes('dinner')) return '🥢';
+  if(ev.type==='food') return '🍽';
+  if(t.includes('shinkansen')||t.includes('nozomi')||t.includes('hikari')) return '🚄';
+  if(t.includes('romance car')) return '🚃';
+  if(t.includes('lawson')||t.includes('7-eleven')||t.includes('konbini')) return '🏪';
+  if(ev.type==='transit') return '🚇';
+  if(ev.type==='nap') return '🛏';
+  if(ev.type==='logistics') return '📦';
+  if(t.includes('date night')) return '💑';
+  if(t.includes('kenady')) return '🌸';
+  if(t.includes('michael')&&t.includes('free')) return '👨';
+  if(t.includes('family free')) return '👨‍👩‍👧‍👧';
+  if(ev.type==='free') return '☀️';
+  const tp = ev.title.split(' ');
+  return tp[0]||'📍';
+}
+
+function gdGetDayEmoji(d){
+  const s = d.summary.toLowerCase();
+  if(s.includes('senso-ji')) return '⛩';
+  if(s.includes('teamlab')) return '🌊';
+  if(s.includes('ghibli')) return '🎬';
+  if(s.includes('capybara')||s.includes('kimono')) return '👘';
+  if(s.includes('akihabara')) return '🎮';
+  if(s.includes('fushimi')) return '⛩️';
+  if(s.includes('bamboo')||s.includes('arashiyama')) return '🎋';
+  if(s.includes('kiyomizu')) return '⛩️';
+  if(s.includes('nara')) return '🦌';
+  if(s.includes('philosopher')) return '🌸';
+  if(s.includes('ropeway')||s.includes('hakone')) return '🚡';
+  if(d.phase==='hakone') return '♨️';
+  if(d.phase==='kyoto') return '⛩️';
+  return '🗼';
+}
+
+// ── PHASE HELPERS ──────────────────────────────────────────────────
+const gdPhaseGrad = {
+  tokyo:'linear-gradient(150deg,#312E81 0%,#4338CA 65%,#5B4FCF 100%)',
+  kyoto:'linear-gradient(150deg,#7B1835 0%,#B5390A 60%,#C84B78 100%)',
+  hakone:'linear-gradient(150deg,#064E3B 0%,#047857 60%,#059669 100%)',
+  travel:'linear-gradient(150deg,#1F2937 0%,#374151 60%,#4B5563 100%)'
+};
+const gdPhaseOverlay = {
+  tokyo:'linear-gradient(to bottom,rgba(0,0,0,.4) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.55) 72%,#1E1B4B 100%)',
+  kyoto:'linear-gradient(to bottom,rgba(0,0,0,.4) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.55) 72%,#7B1835 100%)',
+  hakone:'linear-gradient(to bottom,rgba(0,0,0,.4) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.55) 72%,#064E3B 100%)',
+  travel:'linear-gradient(to bottom,rgba(0,0,0,.4) 0%,rgba(0,0,0,.15) 40%,rgba(0,0,0,.6) 72%,#1F2937 100%)'
+};
+const gdPhaseBg = {
+  tokyo:'background:linear-gradient(to bottom,#1E1B4B,#312E81)',
+  kyoto:'background:linear-gradient(to bottom,#7B1835,#9F1239)',
+  hakone:'background:linear-gradient(to bottom,#064E3B,#065F46)',
+  travel:'background:linear-gradient(to bottom,#1F2937,#374151)'
+};
+
+// ── STATE ──────────────────────────────────────────────────────────
 function showGuided(){
+  try {
   document.getElementById('ov').classList.remove('active');
   document.getElementById('dt').classList.remove('active');
-  document.getElementById('gd').classList.add('active');
+  const gd = document.getElementById('gd');
+  gd.classList.add('active');
   const s = gdLoad();
   if(!s) { renderGdWelcome(); return; }
   if(s.phase==='morning') renderGdMorning(s.dayIdx);
-  else if(s.phase==='event') renderGdEvent(s.dayIdx, s.evtIdx);
+  else if(s.phase==='event') renderGdEvent(s.dayIdx, s.evtIdx, s.path);
   else if(s.phase==='night') renderGdNight(s.dayIdx);
+  else if(s.phase==='path') renderGdPathSelector(s.dayIdx);
   else renderGdWelcome();
+  } catch(err) {
+    document.getElementById('gd').innerHTML = `<div style="padding:40px 24px;color:white;font-family:sans-serif;background:#0F172A;min-height:100vh"><h2 style="color:#F87171;margin-bottom:16px">Error</h2><pre style="white-space:pre-wrap;font-size:12px;color:#94A3B8">${err.message}\n${err.stack}</pre></div>`;
+  }
 }
 
-function gdTopbar(ovStyle, logoStyle, backHtml){
-  return `<div class="gd-topbar">
-    ${backHtml || `<span class="gd-topbar-logo" style="${logoStyle||''}">Japan 2026</span>`}
-    <button class="gd-ov-link" style="${ovStyle||''}" onclick="showOverview()">Overview</button>
-  </div>`;
-}
-
+// ── WELCOME ────────────────────────────────────────────────────────
 function renderGdWelcome(){
   const saved = gdLoad();
-  const gd = document.getElementById('gd');
   const hasSaved = saved && saved.phase && saved.phase !== 'welcome';
   const resumeDay = hasSaved ? days[saved.dayIdx] : null;
-  const phaseClass = resumeDay ? resumeDay.phase : 'welcome';
-
-  gd.innerHTML = `<div class="gd-screen">
-    ${gdTopbar()}
-    <div class="gd-card">
-      <div class="gd-welcome-hero">
+  const gd = document.getElementById('gd');
+  gd.innerHTML = `<div class="gd-welcome-screen">
+    <div class="gd-welcome-hero" style="background:linear-gradient(150deg,#1E1B4B 0%,#4338CA 50%,#C84B78 100%)">
+      
+      <div class="gd-welcome-overlay"></div>
+      <div class="gd-welcome-center">
         <div class="gd-welcome-icon">🌸</div>
         <div class="gd-welcome-title">Japan 2026</div>
         <div class="gd-welcome-sub">Beaudoin Family · Jun 8–23 · 16 days</div>
       </div>
-      <div class="gd-phases-row">
-        <div class="gd-phase-chip" style="background:var(--tokyo-bg);color:var(--tokyo)">🗼 Tokyo</div>
-        <div class="gd-phase-chip" style="background:var(--kyoto-bg);color:var(--kyoto)">⛩ Kyoto</div>
-        <div class="gd-phase-chip" style="background:var(--hakone-bg);color:var(--hakone)">♨️ Hakone</div>
+    </div>
+    <div class="gd-welcome-body">
+      <div class="gd-city-pills">
+        <div class="gd-city-pill" style="background:rgba(67,56,202,.3);color:#A5B4FC">🗼 Tokyo</div>
+        <div class="gd-city-pill" style="background:rgba(159,18,57,.3);color:#FDA4AF">⛩️ Kyoto</div>
+        <div class="gd-city-pill" style="background:rgba(6,78,59,.3);color:#6EE7B7">♨️ Hakone</div>
       </div>
       <div class="gd-spacer"></div>
       ${hasSaved
-        ? `<button class="gd-btn ${resumeDay.phase}" onclick="showGuided()">` +
-            (saved.phase === 'morning' ? `Start Day ${saved.dayIdx+1} · Jun ${days[saved.dayIdx].date} →` :
-             saved.phase === 'event' ? `Continue Day ${saved.dayIdx+1} · Jun ${days[saved.dayIdx].date} →` :
-             `Resume Journey →`) +
-           `</button>
-           <button style="background:none;border:none;font-size:11px;color:var(--ink3);cursor:pointer;padding:8px;font-family:'DM Sans',sans-serif;text-decoration:underline;text-underline-offset:2px;margin-top:2px" onclick="gdClear();renderGdWelcome()">Start over from Day 1</button>`
-        : `<button class="gd-btn welcome" onclick="gdBegin()">Start Journey →</button>`
+        ? `<button class="gd-btn gd-btn-white" onclick="showGuided()" style="margin-bottom:10px">${
+            saved.phase==='morning'?`Start Day ${saved.dayIdx+1} · Jun ${days[saved.dayIdx].date} →`:
+            saved.phase==='event'||saved.phase==='path'?`Continue Day ${saved.dayIdx+1} · Jun ${days[saved.dayIdx].date} →`:
+            'Resume Journey →'
+          }</button>
+          <button onclick="showOverview()" class="gd-btn gd-btn-ghost" style="margin-bottom:10px">View Full Overview</button>
+          <button onclick="gdClear();renderGdWelcome()" style="background:none;border:none;font-size:11px;color:rgba(255,255,255,.3);cursor:pointer;font-family:'DM Sans',sans-serif;padding:6px;text-decoration:underline;text-underline-offset:2px">Start over from Day 1</button>`
+        : `<button class="gd-btn gd-btn-white" onclick="gdBegin()" style="margin-bottom:10px">Start Journey →</button>
+           <button onclick="showOverview()" class="gd-btn gd-btn-ghost">View Full Overview</button>`
       }
     </div>
   </div>`;
 }
 
-function gdBack(dayIdx, evtIdx){
-  if(evtIdx > 0){
-    gdSave({phase:'event', dayIdx, evtIdx: evtIdx-1});
-    renderGdEvent(dayIdx, evtIdx-1);
-  } else {
-    gdSave({phase:'morning', dayIdx});
-    renderGdMorning(dayIdx);
-  }
-}
+function gdBegin(){gdSave({phase:'morning',dayIdx:0});renderGdMorning(0);}
 
-function gdBegin(){
-  gdSave({phase:'morning', dayIdx:0});
-  renderGdMorning(0);
-}
-
+// ── MORNING ────────────────────────────────────────────────────────
 function renderGdMorning(dayIdx){
   const d = days[dayIdx];
   const gd = document.getElementById('gd');
-  const pc = phaseColor[d.phase];
-  const pn = {tokyo:'Tokyo',kyoto:'Kyoto',hakone:'Hakone',travel:'Travel Day'}[d.phase];
-  const greet = ['Good morning!','Rise and shine! ☀️','Ready for today?','Let us do this!','Good morning! ☀️'][dayIdx % 5];
+  const phase = d.phase;
+  const pn = {tokyo:'Tokyo',kyoto:'Kyoto',hakone:'Hakone',travel:'Travel'}[phase];
+  const greets = ['Good morning!','Rise and shine! ☀️','Ready for today?','Let us do this!','Good morning! ☀️'];
+  const greet = greets[dayIdx % greets.length];
+  const emoji = gdGetDayEmoji(d);
+  const bg = gdPhaseBg[phase] || gdPhaseBg.travel;
 
-  gd.innerHTML = `<div class="gd-screen">
-    ${gdTopbar()}
-    <div class="gd-card">
-      <div class="gd-phase-bar" style="background:${pc}"></div>
-      <div class="gd-phase-row">
-        <div class="gd-phase-label" style="color:${pc}">${pn}</div>
-        <div class="gd-progress">Day ${dayIdx+1} of ${days.length}</div>
+  const show = d.events.filter(ev=>ev.type==='activity'||ev.type==='food'||ev.booked);
+  const items = (show.length?show:d.events.filter(ev=>ev.type!=='nap')).slice(0,5);
+  const agendaHtml = items.map(ev=>{
+    const p=ev.title.split(' '); const icon=p[0]; const label=p.slice(1).join(' ')||ev.title;
+    return `<div class="gd-agenda-item"><span class="gd-agenda-icon">${icon}</span>${label}</div>`;
+  }).join('');
+
+  gd.innerHTML = `<div class="gd-screen" style="${bg}">
+    <div class="gd-hero" style="background:${gdPhaseGrad[phase]||gdPhaseGrad.travel}">
+      <div class="gd-hero-watermark">${emoji}</div>
+      <div class="gd-hero-nav">
+        <span class="gd-nav-logo">Japan 2026</span>
+        <button class="gd-nav-btn" onclick="showOverview()">Overview</button>
       </div>
-      <div class="gd-morning-eyebrow">${greet}</div>
-      <div class="gd-morning-date">Jun ${d.date} · ${d.dow}</div>
-      <div class="gd-morning-title">${d.label}</div>
-      <div class="gd-morning-summary">${(()=>{
-        const show = d.events.filter(ev =>
-          ev.type==='activity' || ev.type==='food' || ev.booked
-        );
-        const items = (show.length ? show : d.events.filter(ev=>ev.type!=='nap')).slice(0,6);
-        return items.map(ev=>{
-          const p = ev.title.split(' ');
-          const icon = p[0];
-          const label = p.slice(1).join(' ') || ev.title;
-          return `<div style="display:flex;align-items:baseline;gap:8px;padding:5px 0;border-bottom:1px solid var(--border)">
-            <span style="font-size:18px;flex-shrink:0">${icon}</span>
-            <span style="font-size:15px;color:var(--ink2)">${label}</span>
-          </div>`;
-        }).join('');
-      })()}</div>
+      <div class="gd-hero-title">
+        <div class="gd-chip">${pn} · Day ${dayIdx+1}</div>
+        <div class="gd-hero-eyebrow">${greet}</div>
+        <div class="gd-hero-date">Jun ${d.date} · ${d.dow}</div>
+        <div class="gd-hero-heading">${d.label}</div>
+      </div>
+    </div>
+    <div class="gd-body">
+      <div class="gd-agenda">${agendaHtml}</div>
       <div class="gd-spacer"></div>
-      <button class="gd-btn ${d.phase}" onclick="gdStartDay(${dayIdx})">Let's Go →</button>
+      <button class="gd-btn gd-btn-white" onclick="gdStartDay(${dayIdx})" style="margin-top:20px">Let's Go →</button>
     </div>
   </div>`;
 }
 
 function gdStartDay(dayIdx){
-  gdSave({phase:'event', dayIdx, evtIdx:0});
-  renderGdEvent(dayIdx, 0);
+  const d = days[dayIdx];
+  if(d.splitDay){
+    gdSave({phase:'path',dayIdx});
+    renderGdPathSelector(dayIdx);
+  } else {
+    gdSave({phase:'event',dayIdx,evtIdx:0,path:null});
+    renderGdEvent(dayIdx,0,null);
+  }
 }
 
-function renderGdEvent(dayIdx, evtIdx){
+// ── PATH SELECTOR ──────────────────────────────────────────────────
+function renderGdPathSelector(dayIdx){
   const d = days[dayIdx];
-  const ev = d.events[evtIdx];
   const gd = document.getElementById('gd');
-  const pc = phaseColor[d.phase];
-  const pn = {tokyo:'Tokyo',kyoto:'Kyoto',hakone:'Hakone',travel:'Travel'}[d.phase];
-  const isLast = evtIdx === d.events.length - 1;
-
-  // Extract leading emoji — all titles are formatted "emoji text"
-  const _tp = ev.title.split(' ');
-  const icon = _tp[0] || '📍';
-  const titleText = _tp.slice(1).join(' ') || ev.title;
-
-  const locHtml = ev.loc ? `<div class="gd-ev-loc">
-    <div class="gd-ev-loc-text">📍 ${ev.loc}</div>
-    <a class="gd-maps-link" href="https://maps.google.com/?q=${encodeURIComponent(ev.loc)}" target="_blank" rel="noopener">Maps →</a>
-  </div>` : '';
-
-  const prepHtml = ev.prep && ev.prep.length ? `<div class="gd-ev-prep">
-    <div class="gd-ev-prep-lbl">Notes</div>
-    ${ev.prep.map(p => `<div class="gd-ev-prep-item">${p}</div>`).join('')}
-  </div>` : '';
-
-  const btnLabel = isLast ? 'Done for now ✓' : 'Continue →';
-
-  gd.innerHTML = `<div class="gd-screen">
-    ${gdTopbar('','',`<button class="gd-back-btn" onclick="gdBack(${dayIdx},${evtIdx})">‹ Back</button>`)}
-    <div class="gd-card">
-      <div class="gd-phase-bar" style="background:${pc}"></div>
-      <div class="gd-phase-row">
-        <div class="gd-phase-label" style="color:${pc}">${pn} · Jun ${d.date}</div>
-        <div class="gd-progress">${evtIdx+1} of ${d.events.length}</div>
+  const phase = d.phase;
+  const bg = gdPhaseBg[phase] || gdPhaseBg.travel;
+  const overlay = gdPhaseOverlay[phase] || gdPhaseOverlay.travel;
+  gd.innerHTML = `<div class="gd-split-screen" style="${bg}">
+    <div class="gd-hero" style="height:200px;background:${gdPhaseGrad[phase]||gdPhaseGrad.travel}">
+      <div class="gd-hero-nav">
+        <span class="gd-nav-logo">Japan 2026</span>
+        <button class="gd-nav-btn" onclick="showOverview()">Overview</button>
       </div>
-      <div class="gd-ev-icon">${icon}</div>
-      <div class="gd-ev-title">${titleText}</div>
-      <div class="gd-ev-badges">
-        ${ev.t && ev.t !== 'Morning' ? `<div class="gd-badge gd-badge-time">🕐 ${ev.t}</div>` : ''}
-        ${ev.dur && ev.dur !== '—' ? `<div class="gd-badge gd-badge-dur">${ev.dur}</div>` : ''}
-        ${ev.booked ? `<div class="gd-badge gd-badge-booked">✅ Booked</div>` : ''}
+      <div class="gd-hero-title">
+        <div class="gd-chip">Split Day</div>
+        <div class="gd-hero-heading">Who's following<br>this guide?</div>
       </div>
-      ${locHtml}
-      ${ev.notes ? `<div class="gd-ev-notes">${ev.notes}</div>` : ''}
-      ${prepHtml}
-      <div class="gd-spacer"></div>
-      <button class="gd-btn ${d.phase}" onclick="gdAdvance(${dayIdx},${evtIdx})">${btnLabel}</button>
+    </div>
+    <div class="gd-body">
+      <div class="gd-path-cards">
+        <div class="gd-path-card" onclick="gdSelectPath('kenady-laney',${dayIdx})">
+          <div class="gd-path-icon">👩</div>
+          <div><div class="gd-path-name">Kenady & Laney</div><div class="gd-path-desc">Capybara Café route</div></div>
+        </div>
+        <div class="gd-path-card" onclick="gdSelectPath('michael-lila',${dayIdx})">
+          <div class="gd-path-icon">👨</div>
+          <div><div class="gd-path-name">Michael & Lila</div><div class="gd-path-desc">Morning adventure + Ginza Iwa</div></div>
+        </div>
+      </div>
     </div>
   </div>`;
-  gd.scrollTop = 0;
 }
 
-function gdAdvance(dayIdx, evtIdx){
+function gdSelectPath(path, dayIdx){
   const d = days[dayIdx];
-  if(evtIdx < d.events.length - 1){
-    gdSave({phase:'event', dayIdx, evtIdx: evtIdx+1});
-    renderGdEvent(dayIdx, evtIdx+1);
+  const filtered = d.events.filter(ev => !ev.path || ev.path==='all' || ev.path===path);
+  gdSave({phase:'event', dayIdx, evtIdx:0, path, filteredCount:filtered.length});
+  renderGdEvent(dayIdx, 0, path);
+}
+
+// ── EVENT CARD ─────────────────────────────────────────────────────
+function renderGdEvent(dayIdx, evtIdx, path){
+  const d = days[dayIdx];
+  const filtered = path
+    ? d.events.filter(ev=>!ev.path||ev.path==='all'||ev.path===path)
+    : d.events;
+  const ev = filtered[evtIdx];
+  if(!ev){gdSave({phase:'night',dayIdx});renderGdNight(dayIdx);return;}
+  const gd = document.getElementById('gd');
+  const phase = d.phase;
+  const pn = {tokyo:'Tokyo',kyoto:'Kyoto',hakone:'Hakone',travel:'Travel'}[phase];
+  const isLast = evtIdx === filtered.length - 1;
+
+  const bg = gdPhaseBg[phase] || gdPhaseBg.travel;
+  const emoji = gdGetEventEmoji(ev);
+  const tp = ev.title.split(' '); const icon = tp[0]; const titleText = tp.slice(1).join(' ')||ev.title;
+  const locHtml = ev.loc ? `<div class="gd-loc">
+    <div class="gd-loc-text">📍 ${ev.loc}</div>
+    <a class="gd-maps-btn" href="https://maps.google.com/?q=${encodeURIComponent(ev.loc)}" target="_blank" rel="noopener">Maps →</a>
+  </div>` : '';
+  const prepHtml = ev.prep&&ev.prep.length ? `<div class="gd-prep">
+    <div class="gd-prep-lbl">Notes</div>
+    ${ev.prep.map(p=>`<div class="gd-prep-item">${p}</div>`).join('')}
+  </div>` : '';
+
+  gd.innerHTML = `<div class="gd-screen" style="${bg}">
+    <div class="gd-hero" style="background:${gdPhaseGrad[phase]||gdPhaseGrad.travel}">
+      <div class="gd-hero-watermark">${emoji}</div>
+      <div class="gd-hero-nav">
+        <button class="gd-back-btn" onclick="gdBack(${dayIdx},${evtIdx},'${path||''}')">‹ Back</button>
+        <button class="gd-nav-btn" onclick="showOverview()">Overview</button>
+      </div>
+      <div class="gd-hero-title">
+        <div class="gd-chip">${pn}</div>
+        <div class="gd-hero-heading">${titleText}</div>
+      </div>
+    </div>
+    <div class="gd-body">
+      <div class="gd-progress-row"><div class="gd-progress">${evtIdx+1} of ${filtered.length} today</div></div>
+      <div class="gd-badges">
+        ${ev.t&&ev.t!=='Morning'?`<div class="gd-badge gd-badge-time">🕐 ${ev.t}</div>`:''}
+        ${ev.dur&&ev.dur!=='—'?`<div class="gd-badge gd-badge-dur">${ev.dur}</div>`:''}
+        ${ev.booked?`<div class="gd-badge gd-badge-booked">✅ Booked</div>`:''}
+      </div>
+      ${locHtml}
+      ${ev.notes?`<div class="gd-notes">${ev.notes}</div>`:''}
+      ${prepHtml}
+      <div class="gd-spacer"></div>
+      <button class="gd-btn gd-btn-white" onclick="gdAdvance(${dayIdx},${evtIdx},'${path||''}')">${isLast?'Done for now ✓':'Continue →'}</button>
+    </div>
+  </div>`;
+  gd.scrollTop=0;
+}
+
+function gdAdvance(dayIdx, evtIdx, path){
+  path = path||null;
+  const d = days[dayIdx];
+  const filtered = path ? d.events.filter(ev=>!ev.path||ev.path==='all'||ev.path===path) : d.events;
+  if(evtIdx < filtered.length-1){
+    gdSave({phase:'event',dayIdx,evtIdx:evtIdx+1,path});
+    renderGdEvent(dayIdx,evtIdx+1,path);
   } else {
-    gdSave({phase:'night', dayIdx});
+    gdSave({phase:'night',dayIdx});
     renderGdNight(dayIdx);
   }
 }
 
+function gdBack(dayIdx, evtIdx, path){
+  path = path||null;
+  if(evtIdx>0){
+    gdSave({phase:'event',dayIdx,evtIdx:evtIdx-1,path});
+    renderGdEvent(dayIdx,evtIdx-1,path);
+  } else if(days[dayIdx].splitDay && path){
+    gdSave({phase:'path',dayIdx});
+    renderGdPathSelector(dayIdx);
+  } else {
+    gdSave({phase:'morning',dayIdx});
+    renderGdMorning(dayIdx);
+  }
+}
+
+// ── NIGHT ──────────────────────────────────────────────────────────
+const gdAccom = {tokyo:'Tobu Hotel Levant Tokyo',kyoto:'Yasaka no Yado',hakone:'Hakone Airu',travel:null};
 function renderGdNight(dayIdx){
   const d = days[dayIdx];
-  const isTrip = dayIdx === days.length - 1;
+  const isTrip = dayIdx===days.length-1;
   const accom = gdAccom[d.phase];
   const gd = document.getElementById('gd');
-
   gd.innerHTML = `<div class="gd-night-screen">
     <div class="gd-night-topbar">
-      <button class="gd-ov-link" style="color:#94A3B8;border-color:rgba(255,255,255,.15)" onclick="showOverview()">Overview</button>
+      <button class="gd-nav-btn" onclick="showOverview()">Overview</button>
     </div>
     <div class="gd-night-body">
-      <div class="gd-night-icon">${isTrip ? '✈️' : '🌙'}</div>
-      <div class="gd-night-heading">${isTrip ? 'Safe travels home!' : 'Day ' + (dayIdx+1) + ' complete!'}</div>
-      <div class="gd-night-sub">${isTrip
-        ? 'What an incredible adventure. Sayonara Japan 🌸'
-        : 'Tonight at <strong style="color:white">' + (accom||'your accommodation') + '</strong>' +
-          (dayIdx+1 < days.length
-            ? '<br><br><span style="color:#CBD5E1;font-size:14px">Up next: <strong>Day ' + (dayIdx+2) + ' &middot; Jun ' + days[dayIdx+1].date + '</strong><br>' + days[dayIdx+1].label + '</span>'
-            : '')
+      <div class="gd-night-icon">${isTrip?'✈️':'🌙'}</div>
+      <div class="gd-night-heading">${isTrip?'Safe travels home!':'Day '+(dayIdx+1)+' complete!'}</div>
+      <div class="gd-night-sub">${isTrip?'What an incredible adventure. Sayonara Japan 🌸'
+        :'Tonight at <strong style="color:white">'+(accom||'your accommodation')+'</strong>'
+          +(dayIdx+1<days.length?'<br><br><span style="color:#CBD5E1;font-size:14px">Up next: <strong>Day '+(dayIdx+2)+' &middot; Jun '+days[dayIdx+1].date+'</strong><br>'+days[dayIdx+1].label+'</span>':'')
       }</div>
-      <button class="gd-btn gd-btn-night-main" style="max-width:360px;width:100%;border-radius:12px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600" onclick="gdGoodNight(${dayIdx})">${isTrip ? 'The End 🌸' : 'Good Night 🌙'}</button>
+      ${!isTrip&&dayIdx+1<days.length?`<div class="gd-night-card">
+        <div class="gd-night-card-lbl">Up next</div>
+        <div class="gd-night-card-val">Day ${dayIdx+2} · Jun ${days[dayIdx+1].date}</div>
+        <div class="gd-night-card-sub">${days[dayIdx+1].label}</div>
+      </div>`:''}
+      <button class="gd-btn gd-btn-night" onclick="gdGoodNight(${dayIdx})" style="width:100%;border-radius:14px;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-weight:600;font-size:16px;padding:16px;margin-bottom:10px">${isTrip?'The End 🌸':'Good Night 🌙'}</button>
+      <button class="gd-btn gd-btn-ghost" onclick="showOverview()">View Full Overview</button>
     </div>
   </div>`;
 }
 
 function gdGoodNight(dayIdx){
-  const nextIdx = dayIdx + 1;
-  if(nextIdx < days.length){
-    gdSave({phase:'morning', dayIdx: nextIdx});
-    renderGdWelcome(); // Back to home screen - they'll resume tomorrow
-  } else {
-    gdClear();
-    renderGdWelcome();
-  }
+  const nextIdx=dayIdx+1;
+  if(nextIdx<days.length){gdSave({phase:'morning',dayIdx:nextIdx});renderGdWelcome();}
+  else{gdClear();renderGdWelcome();}
 }
+
 
 // ─── INIT ──────────────────────────────────────────────────────────
 showGuided();
